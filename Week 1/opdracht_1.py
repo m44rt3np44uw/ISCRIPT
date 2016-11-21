@@ -5,11 +5,9 @@ https://dodona.ugent.be/nl/exercises/1813154454/
 """
 
 
-def main():
+def main() -> None:
     """
     Opdracht 1 - Tijdmeting op Mars
-
-    :return: void
     """
 
     # Sol als aarde tijd.
@@ -69,7 +67,7 @@ def converteer_tijd(tijd: float, formule_naar_seconden: int) -> (
     return divmod(tijd, formule_naar_seconden)
 
 
-def markup(getal, string_een, string_twee) -> str:
+def markup(getal: int, string_een: str, string_twee: str) -> str:
     """
     Maak een mooie markup.
 

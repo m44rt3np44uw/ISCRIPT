@@ -34,8 +34,6 @@ def verkrijg_hoek(x: float, y: float) -> float:
 def main() -> None:
     """
     Opdracht 3 - Poolcoordinaten
-
-    :return: None
     """
 
     # Vraag de X en Y coordinaten aan de gebruiker.

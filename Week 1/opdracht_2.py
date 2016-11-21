@@ -12,8 +12,6 @@ def main() -> None:
 
     Formule
     1 radiaal = 180 / 3.1415 = 57.297
-
-    :return: None
     """
 
     # invoer in radialen.
