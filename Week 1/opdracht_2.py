@@ -29,14 +29,14 @@ def main() -> None:
     uren = float(float(radiaal_als_getal) - int(radiaal_als_getal))
 
     # Uren en minuten.
-    (uren, minuten) = tijd_berekening(uren)
+    (minuten, overige_seconden) = tijd_berekening(uren)
 
     # Minuten en seconden.
-    (minuten, seconden) = tijd_berekening(minuten)
+    (seconden, overige_seconden) = tijd_berekening(overige_seconden)
 
     # Print het antwoord in de console.
-    print(int(grootte_van_de_hoek_in_graden), "\n", int(uren), "\n",
-          int(minuten))
+    print(int(grootte_van_de_hoek_in_graden), "\n", int(minuten), "\n",
+          int(seconden))
 
 
 def tijd_berekening(tijd: float) -> (float, float):
