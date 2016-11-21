@@ -30,15 +30,16 @@ def main():
 
     # http://stackoverflow.com/a/3895091/2940668
     # aarde dagen en overige seconden
-    (aarde_dagen, overige_seconden) = divmod(sol_dagen_in_seconden,
-                                             int(1 * 60 * 60 * 24))
+    (aarde_dagen, overige_seconden) = converteer_tijd(sol_dagen_in_seconden,
+                                                      int(1 * 60 * 60 * 24))
 
     # aarden uren en overige seconden
-    (aarde_uren, overige_seconden) = divmod(overige_seconden,
-                                            int(1 * 60 * 60))
+    (aarde_uren, overige_seconden) = converteer_tijd(overige_seconden,
+                                                     int(1 * 60 * 60))
 
     # aarde minuten en overige seconden
-    (aarde_minuten, overige_seconden) = divmod(overige_seconden, int(1 * 60))
+    (aarde_minuten, overige_seconden) = converteer_tijd(overige_seconden,
+                                                        int(1 * 60))
 
     # aarde secondenen overige seconden
     (aarde_seconden, aarde_miliseconden) = str(overige_seconden).split(".")
@@ -53,6 +54,19 @@ def main():
           "en",
           int(aarde_seconden),
           markup(int(aarde_seconden), "seconden", "seconde"))
+
+
+def converteer_tijd(tijd: float, formule_naar_seconden: int) -> (
+        float, float):
+    """
+    Converteert een float naar een tijdsnotatie als int en
+    het overige als float.
+
+    :param tijd:                    als float
+    :param formule_naar_seconden:   als int
+    :return:                        (tijd: float, overige_seconden: float)
+    """
+    return divmod(tijd, formule_naar_seconden)
 
 
 def markup(getal, string_een, string_twee) -> str:
