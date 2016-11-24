@@ -10,8 +10,13 @@ def main() -> None:
     """
     Opdracht 4 - Paardensprong
     """
+    # Verkrijg de begin en eind positie.
     (positie_1, positie_2) = verkrijg_posities()
+
+    # Verkrijg alle mogelijke stappen vanuit de begin positie.
     mogelijk = bereken_stap(positie_1, positie_2)
+
+    # Toon de informatie.
     geef_informatie(positie_1, positie_2, mogelijk)
 
 
