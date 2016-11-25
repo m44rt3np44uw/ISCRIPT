@@ -31,7 +31,7 @@ def verkrijg_pythagorees_drietallen(n: int) -> list:
     :param n: Het opgegeven positieve natuurlijke getal.
     :return: een lijst met pythagorees drietallen.
     """
-
+    # Lijst met alle drietallen.
     drietallen = []
 
     # Loop door alle X waardes heen.
