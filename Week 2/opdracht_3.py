@@ -1,5 +1,5 @@
 """
-Opdracht 9 - Loonbrief
+Opdracht 3 - Loonbrief
 
 https://dodona.ugent.be/nl/exercises/990750894/
 """
@@ -7,7 +7,7 @@ https://dodona.ugent.be/nl/exercises/990750894/
 
 def main() -> None:
     """
-    Opdracht 9 - Loonbrief
+    Opdracht 3 - Loonbrief
     :return:
     """
     # Verkrijg het startbedrag.

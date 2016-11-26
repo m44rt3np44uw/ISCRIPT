@@ -1,5 +1,5 @@
 """
-Opdracht 8 - Pythagorese drietallen
+Opdracht 2 - Pythagorese drietallen
 
 https://dodona.ugent.be/nl/exercises/683768040/
 """
@@ -8,7 +8,7 @@ import math
 
 def main() -> None:
     """
-    Opdracht 8 - Pythagorese drietallen
+    Opdracht 2 - Pythagorese drietallen
     """
     # Verkrijg het getal N.
     n = verkijg_n()

@@ -1,5 +1,5 @@
 """
-Opdracht 11 - Sterke wachtwoorden
+Opdracht 5 - Sterke wachtwoorden
 
 https://dodona.ugent.be/nl/exercises/417422714/
 """
@@ -8,7 +8,7 @@ import string
 
 def main() -> None:
     """
-    Opdracht 11 - Sterke wachtwoorden
+    Opdracht 5 - Sterke wachtwoorden
     """
     # Verkrijg het aantal wachtwoorden.
     aantal_wachtwoorden = verkrijg_aantal_wachtwoorden()

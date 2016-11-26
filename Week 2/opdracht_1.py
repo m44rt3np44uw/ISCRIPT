@@ -1,5 +1,5 @@
 """
-Opdracht 7 - Interessante getallen
+Opdracht 1 - Interessante getallen
 
 https://dodona.ugent.be/nl/exercises/211647828/
 """
@@ -7,7 +7,7 @@ https://dodona.ugent.be/nl/exercises/211647828/
 
 def main() -> None:
     """
-    Opdracht 7 - Interessante getallen.
+    Opdracht 1 - Interessante getallen.
     """
     # Verkrjg het aantal testgevallen.
     aantal_testgevallen = verkrijg_aantal_testgevallen()

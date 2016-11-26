@@ -1,5 +1,5 @@
 """
-Opdracht 10 - Palindroomzinnen
+Opdracht 4 - Palindroomzinnen
 
 https://dodona.ugent.be/nl/exercises/23570674/
 """
@@ -8,7 +8,7 @@ import math
 
 def main() -> None:
     """
-    Opdracht 10 - Palindroomzinnen
+    Opdracht 4 - Palindroomzinnen
     """
     # Verkrijg het aantal palindroomzinnen
     aantal_palindroomzinnen = verkrijg_aantal_palindroomzinnen()
