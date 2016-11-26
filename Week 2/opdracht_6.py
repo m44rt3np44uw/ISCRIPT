@@ -32,7 +32,7 @@ def verkrijg_patroon() -> list:
         invoer = str(input())
 
         # Zolang er geen lege regel gevonden is.
-        if invoer == "":
+        if not invoer:
             break
 
         # Voeg de invoer toe aan de lijst.
