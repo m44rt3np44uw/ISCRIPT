@@ -34,29 +34,29 @@ def verkrijg_pythagorees_drietallen(n: int) -> list:
     # Lijst met alle drietallen.
     drietallen = []
 
-    # Loop door alle X waardes heen.
-    for x in range(1, n):
+    # Loop door alle A waardes heen.
+    for a in range(1, n):
 
-        # X in het kwadraat.
-        x2 = math.pow(x, 2)
+        # B in het kwadraat.
+        a2 = math.pow(a, 2)
 
-        # Loop door alle Y waardes heen.
-        for y in range(x + 1, n):
+        # Loop door alle B waardes heen.
+        for b in range(a, n):
 
-            # Y in het kwadraat.
-            y2 = math.pow(y, 2)
+            # B in het kwadraat.
+            b2 = math.pow(b, 2)
 
-            # Z in het kwadraat.
-            z2 = x2 + y2
+            # C in het kwadraat.
+            c2 = a2 + b2
 
-            # De wortel van Z in het kwadraat.
-            zs = int(math.sqrt(z2))
+            # De wortel van C in het kwadraat.
+            cs = int(math.sqrt(c2))
 
             # Controleer of de formule klopt.
-            if (zs * zs == z2) and (x + y + zs == n):
+            if (cs * cs == c2) and (a + b + cs == n):
 
                 # Voeg het toe aan de lijst.
-                drietallen.append((x, y, zs))
+                drietallen.append((a, b, cs))
 
     # Geef de lijst terug.
     return drietallen

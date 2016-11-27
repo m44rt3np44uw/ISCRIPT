@@ -22,4 +22,4 @@ zip -r zip/s1094220-week-5.zip Week\ 5/
 zip -r zip/s1094220-week-6.zip Week\ 6/
 
 # Week 7
-zip -r zip/gits1094220-week-7.zip Week\ 7/
+zip -r zip/s1094220-week-7.zip Week\ 7/
