@@ -13,16 +13,28 @@ def main() -> None:
     generatie = [[True] + [False] * 7 for _ in range(6)]
 
     # Toon de generatie
-    toon_generatie(generatie)
+    # toon_generatie(generatie)
 
     # Aantal buren op positie 0,0
-    print(aantal_buren(generatie, 0, 0))
+    # print(aantal_buren(generatie, 0, 0))
 
     # Aantal buren op positie 1,1
-    print(aantal_buren(generatie, 1, 1))
+    # print(aantal_buren(generatie, 1, 1))
 
     # Aantal buren op positie 2,2
-    print(aantal_buren(generatie, 2, 2))
+    # print(aantal_buren(generatie, 2, 2))
+
+    # Toon een aantal volgende generaties.
+    for generatie_stap in range(0, 5):
+
+        # Toon de generatie.
+        toon_generatie(generatie)
+
+        # Voor de duidelijkheid een lege regel.
+        print("")
+
+        # Vernieuw de generatie.
+        generatie = volgende_generatie(generatie)
 
 
 def toon_generatie(generatie: list) -> None:
@@ -39,7 +51,6 @@ def toon_generatie(generatie: list) -> None:
 
         # Loop door elke positie heen.
         for positie in rij:
-
             # Voeg de positie als X of O toe aan de rij.
             geconverteerde_rij.append(verkrijg_toonbare_positie(positie))
 
@@ -79,7 +90,6 @@ def aantal_buren(generatie: list, eigen_x: int, eigen_y: int) -> int:
 
                     # Controleert of het niet negatief is.
                     if not is_negatief_coordinaat(x, y):
-
                         # Zo ja, tel 1 buur erbij op.
                         buren += 1
 
@@ -94,6 +104,20 @@ def volgende_generatie(generatie: list) -> list:
     :param generatie: Een lijst van rijen die een generatie vormen.
     :return: Een lijst van rijen die de nieuwe generatie vormen.
     """
+    return generatie
+
+
+def spelregel_1(levend: bool, aantal_buurcellen: int) -> bool:
+    """
+    Als een levende cel door 2 of 3 levende buurcellen omgeven wordt,
+    blijft deze cel ook in de volgende generatie levend.
+
+    :param levend: Of de opgegeven cel levend is of niet als boolean.
+    :param aantal_buurcellen: Het aantal buurcellen als integer.
+    :return: Of de cel blijft leven of niet aan de hand van de bovengestelde
+             vraag als boolean.
+    """
+    return levend and (aantal_buurcellen == 2 or aantal_buurcellen == 3)
 
 
 def verkrijg_toonbare_positie(bezet: bool) -> str:
@@ -117,7 +141,8 @@ def is_negatief_coordinaat(x: int, y: int) -> bool:
     return x < 0 or y < 0
 
 
-def is_eigen_positie(eigen_coordinaat: tuple, opgegeven_coordinaat: tuple) -> bool:
+def is_eigen_positie(eigen_coordinaat: tuple,
+                     opgegeven_coordinaat: tuple) -> bool:
     """
     Controleert of de opgegeven coordinaat niet zijn eigen coordinaat is.
 
@@ -126,6 +151,7 @@ def is_eigen_positie(eigen_coordinaat: tuple, opgegeven_coordinaat: tuple) -> bo
     :return: True of False als het opgegeven coordinaat hetzelfde is.
     """
     return eigen_coordinaat == opgegeven_coordinaat
+
 
 if __name__ == "__main__":
     main()
