@@ -3,7 +3,6 @@ Opdracht 4 - Palindroomzinnen
 
 https://dodona.ugent.be/nl/exercises/23570674/
 """
-import math
 
 
 def main() -> None:
@@ -69,26 +68,11 @@ def controleer_palindroomzinnen(palindroomzinnen: list) -> list:
     # Loop door elke zin heen.
     for palindroomzin in palindroomzinnen:
         # Verkrijg de zin als alleen letters.
-        alleen_letters = verkijg_letters(palindroomzin.lower())
-
-        # Verkrijg het aantal karakters van de zin.
-        aantal_karakters = len(alleen_letters)
-
-        # Verkrijg de helft + 1
-        helft_karakters = math.ceil(aantal_karakters / 2)
-
-        # Het eerste gedeelte van de zin.
-        eerste_gedeelte = alleen_letters[:helft_karakters]
-
-        # Het laatste gedeelte van de zin.
-        laatste_gedeelte = alleen_letters[-helft_karakters:]
-
-        # Het laatste gedeelte van de zin omgedraaid.
-        laatste_gedeelte_omgedraaid = laatste_gedeelte[::-1]
+        palindroomzin = verkijg_letters(palindroomzin.lower())
 
         # Voeg het antwoord toe.
         zijn_palindroomzinnen.append(
-            eerste_gedeelte == laatste_gedeelte_omgedraaid)
+            palindroomzin == palindroomzin[::-1])
 
     # Geef de lijst met booleans terug.
     return zijn_palindroomzinnen
