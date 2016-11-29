@@ -87,17 +87,7 @@ def verkrijg_roker_jaren(roker: bool) -> int:
     :param roker: Roker als boolean.
     :return: Verkrijg het aantal levensjaren als integer.
     """
-    # Controleer of je een roker bent.
-    if roker:
-
-        # Geef -5 jaar terug.
-        return -5
-
-    # Geen roker?
-    else:
-
-        # Geef 5 jaar terug.
-        return 5
+    return -5 if roker else 5
 
 
 def verkrijg_sport_jaren(sport: int) -> int:
@@ -107,17 +97,7 @@ def verkrijg_sport_jaren(sport: int) -> int:
     :param sport: Sport uren als integer.
     :return: Verkrijg het aantal levensjaren als integer.
     """
-    # Controleer of iemand nooit sport
-    if sport == 0:
-
-        # Geef -3 jaar terug.
-        return -3
-
-    # Sport de persoon wel.
-    else:
-
-        # Geef het aantal sport jaren terug.
-        return sport
+    return -3 if sport is 0 else sport
 
 
 def verkrijg_alcohol_jaren(alcohol: int) -> int:
@@ -153,17 +133,7 @@ def verkrijg_fastfood_jaren(fastfood: bool) -> int:
     :param fastfood: Fastfood als boolean.
     :return: Het aantal fastfood jaren als boolean.
     """
-    # Controleer of de persoon vaak fastfood eet.
-    if fastfood:
-
-        # Geef 0 jaar terug.
-        return 0
-
-    # Leeft de persoon zonder fasfood.
-    else:
-
-        # Geef 3 jaar terug.
-        return 3
+    return 0 if fastfood else 3
 
 
 if __name__ == "__main__":

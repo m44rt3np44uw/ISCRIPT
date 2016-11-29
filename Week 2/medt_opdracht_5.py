@@ -18,7 +18,6 @@ def main() -> None:
 
     # Ga door elk wachtwoord heen.
     for wachtwoord in wachtwoorden:
-
         # Doe de controle en verkijg het aantal goed gecontroleerde vragen.
         aantal_goed = doe_controle(wachtwoord)
 
@@ -49,7 +48,6 @@ def heeft_minimaal_een_hoofdletter(wachtwoord: str) -> bool:
 
         # Controleer of het karakter een hoofdletter is.
         if karakter.isupper():
-
             # Zo ja, geef true terug.
             return True
 
@@ -69,7 +67,6 @@ def heeft_minimaal_een_kleine_letter(wachtwoord: str) -> bool:
 
         # Controleer of het karakter een kleine letter is.
         if karakter.islower():
-
             # Zo ja, geef true terug.
             return True
 
@@ -89,7 +86,6 @@ def heeft_minimaal_een_cijfer(wachtwoord: str) -> bool:
 
         # Controleer of het karakter een cijfer is.
         if karakter.isnumeric():
-
             # Zo ja, geef true terug.
             return True
 
@@ -112,7 +108,6 @@ def heeft_minimaal_een_speciaal_karakter(wachtwoord: str) -> bool:
 
         # Controleer of het karakter een speciaal karakter is.
         if karakter in speciale_karakters:
-
             # Zo ja, geef true terug.
             return True
 
@@ -141,7 +136,6 @@ def verkrijg_wachtwoorden(aantal_wachtwoorden: int) -> list:
 
     # Vraag de wachtwoorden.
     for wachtwoord_nummer in range(0, aantal_wachtwoorden):
-
         # Vraag het wachtwoord.
         wachtwoord = input("Wachtwoord " + str(wachtwoord_nummer + 1) + ": ")
 
@@ -190,11 +184,9 @@ def geef_antwoord(aantal_controles_goed: int) -> None:
     """
     Geef het antwoord op de vraag.
 
-    :param aantal_controles_goed: Het aantal goed gekeurde controles als integer.
+    :param aantal_controles_goed: Het aantal goed gekeurde
+           controles als integer.
     """
-    # Controle string.
-    controle = ""
-
     # Controleer of het aantal 3 of 4 is.
     if aantal_controles_goed == 3 or aantal_controles_goed == 4:
         controle = "matige"

@@ -20,6 +20,8 @@ def main() -> None:
 
     # Ga door elk antwoord heen.
     for antwoord in antwoorden:
+
+        # Geef het antwoord.
         geef_antwoord(antwoord)
 
 
@@ -44,6 +46,7 @@ def verkrijg_palindroomzinnen(aantal_palindroomzinnen: int) -> list:
 
     # Verkrijg elke zin.
     for zin in range(0, aantal_palindroomzinnen):
+
         # Vraag de zin op.
         opgegeven_zin = str(input("Palindroomzin " + str(zin + 1) + ": "))
 
@@ -67,12 +70,12 @@ def controleer_palindroomzinnen(palindroomzinnen: list) -> list:
 
     # Loop door elke zin heen.
     for palindroomzin in palindroomzinnen:
+
         # Verkrijg de zin als alleen letters.
         palindroomzin = verkijg_letters(palindroomzin.lower())
 
         # Voeg het antwoord toe.
-        zijn_palindroomzinnen.append(
-            palindroomzin == palindroomzin[::-1])
+        zijn_palindroomzinnen.append(palindroomzin is palindroomzin[::-1])
 
     # Geef de lijst met booleans terug.
     return zijn_palindroomzinnen

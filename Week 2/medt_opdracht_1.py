@@ -55,7 +55,7 @@ def is_deelbaar(testgeval: int, natuurlijk_getal: int) -> bool:
     :param natuurlijk_getal: Een natuurlijk getal als integer.
     :return: True of False op basis van de boven gestelde vraag.
     """
-    return natuurlijk_getal % testgeval == 0
+    return natuurlijk_getal % testgeval is 0
 
 
 def controleer_som(testgeval: int, natuurlijk_getal: int) -> bool:
@@ -67,18 +67,11 @@ def controleer_som(testgeval: int, natuurlijk_getal: int) -> bool:
     :param natuurlijk_getal: opgegeven natuurlijk getal als integer.
     :return: True of False op basis van de bovengestelde vraag.
     """
-    # Split het natuurlijk getal op in een lijst van digits.
-    natuurlijk_getal_lijst = list(map(int, str(natuurlijk_getal)))
-
     # De som van de digits/getallen lijst.
-    som = 0
-
-    # Tel de getallen bij elkaar op.
-    for getal in natuurlijk_getal_lijst:
-        som = som + getal
+    som = sum(list(map(int, str(natuurlijk_getal))))
 
     # Geef terug of de getallen gelijk zijn aan elkaar.
-    return testgeval == som
+    return testgeval is som
 
 
 def verkrijg_aantal_testgevallen() -> int:
@@ -95,6 +88,8 @@ def verkrijg_aantal_testgevallen() -> int:
 
     # Controleer of het wel minder dan 50 testgevallen zijn.
     while 0 < aantal_testgevallen > 50:
+
+        # Vraag het aantal testgevallen.
         aantal_testgevallen = stel_interger_vraag(vraag)
 
     # Geef het aantal testgevallen terug.
@@ -122,6 +117,7 @@ def verkrijg_testgevallen(aantal_testgevallen: int) -> list:
 
         # Controleer of het testgeval wel tussen de 0 en de 101 ligt.
         while 0 < gegeven_testgeval > 100:
+
             # Zoniet stellen we de vraag opniew.
             gegeven_testgeval = stel_interger_vraag(vraag)
 
