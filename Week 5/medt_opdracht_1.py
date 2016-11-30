@@ -3,7 +3,6 @@ Opdracht 1 - Forsyth-Edwards notatie
 
 https://dodona.ugent.be/nl/exercises/867899652/
 """
-import textwrap
 
 
 def main() -> None:
