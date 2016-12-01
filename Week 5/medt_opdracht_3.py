@@ -6,23 +6,6 @@ https://dodona.ugent.be/nl/exercises/1392321201/
 import csv
 
 
-def main() -> None:
-    # Zoekresultaat 1
-    print(prijzen("medt_opdracht_3_prijzen.csv", prijs="nobelprijs", jaar=1994))
-
-    # Zoekresultaat 2
-    # print(prijzen("medt_opdracht_3_prijzen.csv", prijs="nobelprijs", discipline="wiskunde"))
-
-    # Zoekresultaat 3
-    # print(prijzen("medt_opdracht_3_prijzen.csv", nationaliteit="bel"))
-
-    # Zoekresultaat 4
-    # print(prijzen("medt_opdracht_3_prijzen.csv", discipline="scheikunde", laureaten=3))
-
-    # Zoekresultaat 5
-    # print(prijzen("medt_opdracht_3_prijzen.csv", motivering="röntgen", discipline="natuurkunde", nationaliteit="GB"))
-
-
 def prijzen(prijzen_csv: str, prijs=None, discipline=None, jaar=None,
             nationaliteit=None, laureaten=None, motivering=None) -> list:
     """
@@ -40,7 +23,28 @@ def prijzen(prijzen_csv: str, prijs=None, discipline=None, jaar=None,
     :return: De geselecteerde prijzen als list.
     """
     # Geef de prijzen terug
-    return []
+
+    csv_inhoud = verkrijg_csv_inhoud(prijzen_csv)
+
+    if prijs is not None:
+        csv_inhoud = is_prijs(prijs, csv_inhoud)
+
+    if discipline is not None:
+        csv_inhoud = is_discipline(discipline, csv_inhoud)
+
+    if jaar is not None:
+        csv_inhoud = is_jaar(jaar, csv_inhoud)
+
+    if nationaliteit is not None:
+        csv_inhoud = is_nationaliteit(nationaliteit, csv_inhoud)
+
+    if laureaten is not None:
+        csv_inhoud = is_laureaten(laureaten, csv_inhoud)
+
+    if motivering is not None:
+        csv_inhoud = is_motivering(motivering, csv_inhoud)
+
+    return csv_inhoud
 
 
 def verkrijg_csv_inhoud(prijzen_csv: str) -> list:
@@ -80,7 +84,7 @@ def verkrijg_csv_inhoud(prijzen_csv: str) -> list:
     return alle_prijzen
 
 
-def is_prijs(prijs: str, uitreiking: dict) -> bool:
+def is_prijs(prijs: str, uitreiking: list) -> list:
     """
     Controleer of de uitreiking een bepaalde prijs is.
 
@@ -89,16 +93,21 @@ def is_prijs(prijs: str, uitreiking: dict) -> bool:
     :return: True of False op basis van bovenstaande vraag.
     """
     # De prijs in kleine letters.
-    prijs = prijs.lower()
+    # prijs = prijs.lower()
 
     # De uitreiking prijs in kleine letters.
-    uitreiking_prijs = uitreiking['prijs'].lower()
+    # uitreiking_prijs = uitreiking['prijs'].lower()
 
     # Controleer of het de opgegeven prijs is.
-    return prijs == uitreiking_prijs
+    # return prijs == uitreiking_prijs
+
+    lst = []
+    [lst.append(uitr) if uitr['prijs'].lower() == prijs.lower() else False for uitr in uitreiking]
+
+    return lst
 
 
-def is_discipline(discipline: str, uitreiking: dict) -> bool:
+def is_discipline(discipline: str, uitreiking: list) -> list:
     """
     Controleert of de discipline overeenkomt met de opgegeven uitreiking.
 
@@ -107,16 +116,21 @@ def is_discipline(discipline: str, uitreiking: dict) -> bool:
     :return: True of False op basis van bovenstaande vraag.
     """
     # Discipline in kleine letters.
-    discipline = discipline.lower()
+    # discipline = discipline.lower()
 
     # Discipline uit de uitreiking.
-    uitreiking_discipline = uitreiking['discipline'].lower()
+    # uitreiking_discipline = uitreiking['discipline'].lower()
 
     # Controleer of het de opgegeven discipline is.
-    return discipline == uitreiking_discipline
+    # return discipline == uitreiking_discipline
+
+    lst = []
+    [lst.append(uitr) if uitr['discipline'].lower() == discipline.lower() else False for uitr in uitreiking]
+
+    return lst
 
 
-def is_jaar(jaar: int, uitreiking: dict) -> bool:
+def is_jaar(jaar: int, uitreiking: list) -> list:
     """
     Controleert of de uitreiking in een bepaalt jaar is.
 
@@ -125,13 +139,18 @@ def is_jaar(jaar: int, uitreiking: dict) -> bool:
     :return: True of False op basis van bovenstaande vraag.
     """
     # Het uitreiking jaartal.
-    uitreiking_jaar = uitreiking['jaar']
+    # uitreiking_jaar = uitreiking['jaar']
 
     # Controleer of het de opgegeven prijs is.
-    return jaar == uitreiking_jaar
+    # return jaar == uitreiking_jaar
+
+    lst = []
+    [lst.append(uitr) if uitr['jaar'] == jaar else False for uitr in uitreiking]
+
+    return lst
 
 
-def is_nationaliteit(nationaliteit: str, uitreiking: dict) -> bool:
+def is_nationaliteit(nationaliteit: str, uitreiking: list) -> list:
     """
     Controleert of 1 of meerdere van de laureaten de opgegeven
     nationaliteit heeft.
@@ -141,32 +160,38 @@ def is_nationaliteit(nationaliteit: str, uitreiking: dict) -> bool:
     :return: True of False op basis van bovenstaande vraag.
     """
     # Laureaten
-    laureaten = uitreiking['laureaat']
+    # laureaten = uitreiking['laureaat']
 
     # Nationaliteit
-    nationaliteit = nationaliteit.upper()
+    # nationaliteit = nationaliteit.upper()
 
     # Aantal laureaten met dezelfde nationaliteit.
-    aantal_laureaten = 0
+    # aantal_laureaten = 0
 
     # Loop door elke laureaat heen.
-    for laureaat in laureaten:
+    # for laureaat in laureaten:
 
-        # Laureaat nationaliteit.
-        laureaat_nationaliteit = laureaat.split('(', 2)[1].split(')', 1)[
-            0].upper()
+    # Laureaat nationaliteit.
+    # laureaat_nationaliteit = laureaat.split('(', 2)[1].split(')', 1)[
+    # 0].upper()
 
-        # Controleer of de nationaliteit voorkomt.
-        if nationaliteit in laureaat_nationaliteit:
+    # Controleer of de nationaliteit voorkomt.
+    # if nationaliteit in laureaat_nationaliteit:
 
-            # Tel het aantal nationaliteiten op.
-            aantal_laureaten += 1
+    # Tel het aantal nationaliteiten op.
+    # aantal_laureaten += 1
 
     # Geef het antwoord terug.
-    return aantal_laureaten > 0
+    # return aantal_laureaten > 0
+
+    lst = []
+    [[lst.append(uitr) if "({})".format(nationaliteit.lower()) in lau.lower() else False for lau in uitr['laureaat']]
+     for uitr in uitreiking]
+
+    return lst
 
 
-def is_laureaten(aantal_laureaten: int, uitreiking: dict) -> bool:
+def is_laureaten(aantal_laureaten: int, uitreiking: list) -> list:
     """
     Controleert of het aantal opgegeven laureaten overeen komen met de opgeven
     uitreiking.
@@ -175,10 +200,14 @@ def is_laureaten(aantal_laureaten: int, uitreiking: dict) -> bool:
     :param uitreiking: De uitreiking als dictionary.
     :return: True of False op basis van bovenstaande vraag.
     """
-    return aantal_laureaten is len(uitreiking['laureaat'])
+
+    lst = []
+    [lst.append(uitr) if len(uitr['laureaat']) == aantal_laureaten else False for uitr in uitreiking]
+
+    return lst
 
 
-def is_motivering(motivering: str, uitreiking: dict) -> bool:
+def is_motivering(motivering: str, uitreiking: list) -> list:
     """
     Controleert of de opgegeven motivering bij de uitreiking hoor door te
     kijken of het erin voor komt.
@@ -187,7 +216,29 @@ def is_motivering(motivering: str, uitreiking: dict) -> bool:
     :param uitreiking: De uitreiking als dictionary.
     :return: True of False op basis van bovenstaande vraag.
     """
-    return motivering in uitreiking["motivering"]
+    lst = []
+    [lst.append(uitr) if uitr['motivering'].lower() == motivering.lower() else False for uitr in uitreiking]
+
+    return lst
+
+
+def main() -> None:
+    # Zoekresultaat 1
+    print(prijzen("medt_opdracht_3_prijzen.csv", prijs="nobelprijs", jaar=1994, discipline="economie", laureaten=3,
+                  motivering="for their pioneering analysis of equilibria in the theory of non-cooperative games",
+                  nationaliteit="VS"))
+
+    # Zoekresultaat 2
+    # print(prijzen("medt_opdracht_3_prijzen.csv", prijs="nobelprijs", discipline="wiskunde"))
+
+    # Zoekresultaat 3
+    # print(prijzen("medt_opdracht_3_prijzen.csv", nationaliteit="bel"))
+
+    # Zoekresultaat 4
+    # print(prijzen("medt_opdracht_3_prijzen.csv", discipline="scheikunde", laureaten=3))
+
+    # Zoekresultaat 5
+    # print(prijzen("medt_opdracht_3_prijzen.csv", motivering="röntgen", discipline="natuurkunde", nationaliteit="GB"))
 
 
 if __name__ == "__main__":
