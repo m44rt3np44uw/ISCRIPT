@@ -50,7 +50,6 @@ def verkrijg_lonen() -> list:
         # Controleer of er meer dan 3 werknemers zijn en de invoer niet gelijk
         # is aan het woord stop.
         if len(lonen) > 3 and invoer.lower() == "stop":
-
             # Stop de loop.
             break
 
@@ -78,7 +77,8 @@ def verkrijg_gemiddeld_loon(lonen: list) -> float:
     return som / aantal_werknemers
 
 
-def geef_antwoord(startbedrag: int, lonen: list, gemiddelde_loon: float) -> None:
+def geef_antwoord(startbedrag: int, lonen: list,
+                  gemiddelde_loon: float) -> None:
     """
     Geef het antwoord.
 
@@ -90,13 +90,13 @@ def geef_antwoord(startbedrag: int, lonen: list, gemiddelde_loon: float) -> None
     totaal_loon = startbedrag
 
     # Ga door elke loon heen.
-    for loon in lonen:
-
+    for loon_index, loon in enumerate(lonen):
         # Tel het loon erbij op.
         totaal_loon = totaal_loon + loon
 
         # Geef het totaal bedrag weer in de console van elke werknemer.
-        print("werknemer #" + str(lonen.index(loon) + 1) + " fluistert €" + str(totaal_loon))
+        print("werknemer #" + str(loon_index + 1) + " fluistert €" + str(
+            totaal_loon))
 
     # Geef het gemiddelde loon.
     print("gemiddeld loon: €" + str("{0:.2f}".format(gemiddelde_loon)))
