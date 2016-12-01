@@ -75,7 +75,7 @@ def controleer_palindroomzinnen(palindroomzinnen: list) -> list:
         palindroomzin = verkijg_letters(palindroomzin.lower())
 
         # Voeg het antwoord toe.
-        zijn_palindroomzinnen.append(palindroomzin is palindroomzin[::-1])
+        zijn_palindroomzinnen.append(palindroomzin == palindroomzin[::-1])
 
     # Geef de lijst met booleans terug.
     return zijn_palindroomzinnen
