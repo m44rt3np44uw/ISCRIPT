@@ -6,32 +6,6 @@ https://dodona.ugent.be/nl/exercises/587558403/
 import math
 
 
-def main() -> None:
-    """
-    Opdracht 5 - Territoriale wateren
-    """
-    # Verkrijg de coordinaten.
-    coordinaat_1, coordinaat_2, coordinaat_3 = verkrijg_coordinaten()
-
-    # Splits de coordinaten van punt 3 op.
-    x3, y3 = coordinaat_3
-
-    # Verkrijg het voetpunt.
-    voetpunt = verkrijg_voetpunt(coordinaat_1, coordinaat_2, coordinaat_3)
-
-    # Splits de coordinaten van het voetpunt op.
-    xv, yv = voetpunt
-
-    # Verkrijg de euclidische afstand.
-    euclidische_afstand = verkrijg_euclidische_afstand(xv, x3, yv, y3)
-
-    # Verkrijg de zone als string.
-    zone = verkrijg_maritieme_zone(euclidische_afstand)
-
-    # Toon de informatie.
-    toon_informatie(voetpunt, euclidische_afstand, zone)
-
-
 def verkrijg_maritieme_zone(afstand_tot_basislijn: float) -> str:
     """
     Verkrijg de afstand tot de bassislijn als maritieme naam.
@@ -50,7 +24,8 @@ def verkrijg_maritieme_zone(afstand_tot_basislijn: float) -> str:
         return "internationale wateren"
 
 
-def verkrijg_voetpunt(coordinaat_1: tuple, coordinaat_2: tuple, coordinaat_3: tuple) -> tuple:
+def verkrijg_voetpunt(coordinaat_1: tuple, coordinaat_2: tuple,
+                      coordinaat_3: tuple) -> tuple:
     """
     Verkrijg de coordinaten van het voetpunt.
 
@@ -66,7 +41,8 @@ def verkrijg_voetpunt(coordinaat_1: tuple, coordinaat_2: tuple, coordinaat_3: tu
     x3, y3 = coordinaat_3
 
     # Verkijg u
-    u = ((x3 - x1) * (x2 - x1) + (y3 - y1) * (y2 - y1)) / (math.pow(x2 - x1, 2) + math.pow(y2 - y1, 2))
+    u = ((x3 - x1) * (x2 - x1) + (y3 - y1) * (y2 - y1)) / (
+    math.pow(x2 - x1, 2) + math.pow(y2 - y1, 2))
 
     # Verkijg Xv en Yv
     xv = x1 + u * (x2 - x1)
@@ -79,7 +55,8 @@ def verkrijg_voetpunt(coordinaat_1: tuple, coordinaat_2: tuple, coordinaat_3: tu
     return voetpunt
 
 
-def verkrijg_euclidische_afstand(xv: float, x3: float, yv: float, y3: float) -> float:
+def verkrijg_euclidische_afstand(xv: float, x3: float, yv: float,
+                                 y3: float) -> float:
     """
     Verkrijg de euclidische afstand.
 
@@ -93,7 +70,8 @@ def verkrijg_euclidische_afstand(xv: float, x3: float, yv: float, y3: float) -> 
     return math.sqrt(math.pow(xv - x3, 2) + math.pow(yv - y3, 2))
 
 
-def toon_informatie(voetpunt: tuple, afstand_in_zeemijlen: float, zone: str) -> None:
+def toon_informatie(voetpunt: tuple, afstand_in_zeemijlen: float,
+                    zone: str) -> None:
     """
     Toon de informatie in het console.
 
@@ -120,7 +98,6 @@ def verkrijg_coordinaten() -> list:
 
     # Vraag het X en het Y coordinaat voor de 3 punten.
     for getal in range(1, 4):
-
         # X coordinaat.
         x = input("X" + str(getal) + ": ")
 
@@ -132,6 +109,33 @@ def verkrijg_coordinaten() -> list:
 
     # Geef de getallen terug.
     return getallen
+
+
+def main() -> None:
+    """
+    Opdracht 5 - Territoriale wateren
+    """
+    # Verkrijg de coordinaten.
+    coordinaat_1, coordinaat_2, coordinaat_3 = verkrijg_coordinaten()
+
+    # Splits de coordinaten van punt 3 op.
+    x3, y3 = coordinaat_3
+
+    # Verkrijg het voetpunt.
+    voetpunt = verkrijg_voetpunt(coordinaat_1, coordinaat_2, coordinaat_3)
+
+    # Splits de coordinaten van het voetpunt op.
+    xv, yv = voetpunt
+
+    # Verkrijg de euclidische afstand.
+    euclidische_afstand = verkrijg_euclidische_afstand(xv, x3, yv, y3)
+
+    # Verkrijg de zone als string.
+    zone = verkrijg_maritieme_zone(euclidische_afstand)
+
+    # Toon de informatie.
+    toon_informatie(voetpunt, euclidische_afstand, zone)
+
 
 if __name__ == '__main__':
     main()

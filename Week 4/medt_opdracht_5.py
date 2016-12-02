@@ -6,41 +6,6 @@ https://dodona.ugent.be/nl/exercises/116986379/
 from datetime import date, timedelta, datetime
 
 
-def main() -> None:
-    """
-    Opdracht 5 - Zomertijd
-    """
-    # Zomertijd 2013
-    print(zomertijd(2013))
-
-    # Zomertijd 2014
-    print(zomertijd(2014))
-
-    # Zomertijd 2015
-    print(zomertijd(2015))
-
-    # Wintertijd 2013
-    print(wintertijd(2013))
-
-    # Wintertijd 2014
-    print(wintertijd(2014))
-
-    # Wintertijd 2015
-    print(wintertijd(2015))
-
-    # Klok 1
-    print(klok('27/06/2013'))
-
-    # Klok 2
-    print(klok('27/11/2013'))
-
-    # Klok 3
-    print(klok('31/03/2013'))
-
-    # Klok 4
-    print(klok('27/10/2013'))
-
-
 def zomertijd(jaartal: int) -> date:
     """
     Krijg datum die voorstelt waarop in de Europese Unie de zomertijd ingaat
@@ -121,6 +86,41 @@ def klok(datum: str) -> str:
     # Controleer of de wintertijd is ingegaan.
     elif datum_wintertijd > datum > datum_zomertijd:
         return "zomertijd"
+
+
+def main() -> None:
+    """
+    Opdracht 5 - Zomertijd
+    """
+    # Zomertijd 2013
+    print(zomertijd(2013))
+
+    # Zomertijd 2014
+    print(zomertijd(2014))
+
+    # Zomertijd 2015
+    print(zomertijd(2015))
+
+    # Wintertijd 2013
+    print(wintertijd(2013))
+
+    # Wintertijd 2014
+    print(wintertijd(2014))
+
+    # Wintertijd 2015
+    print(wintertijd(2015))
+
+    # Klok 1
+    print(klok('27/06/2013'))
+
+    # Klok 2
+    print(klok('27/11/2013'))
+
+    # Klok 3
+    print(klok('31/03/2013'))
+
+    # Klok 4
+    print(klok('27/10/2013'))
 
 
 if __name__ == "__main__":

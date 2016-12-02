@@ -6,23 +6,6 @@ https://dodona.ugent.be/nl/exercises/683768040/
 import math
 
 
-def main() -> None:
-    """
-    Opdracht 2 - Pythagorese drietallen
-    """
-    # Verkrijg het getal N.
-    n = verkijg_n()
-
-    # Lijst met pythagorees getallen.
-    pythagorees_drietallen = verkrijg_pythagorees_drietallen(n)
-
-    # Ga door elk pythagorees drietal heen.
-    for drietal in pythagorees_drietallen:
-
-        # Toon het op het scherm.
-        print(str(drietal))
-
-
 def verkrijg_pythagorees_drietallen(n: int) -> list:
     """
     Verkrijg een lijst met pythagorees drietallen waarvan de uitkomst gelijk
@@ -54,7 +37,6 @@ def verkrijg_pythagorees_drietallen(n: int) -> list:
 
             # Controleer of de formule klopt.
             if (cs * cs == c2) and (a + b + cs == n):
-
                 # Voeg het toe aan de lijst.
                 drietallen.append((a, b, cs))
 
@@ -69,6 +51,22 @@ def verkijg_n() -> int:
     :return: Het getal N als integer.
     """
     return int(input("N: "))
+
+
+def main() -> None:
+    """
+    Opdracht 2 - Pythagorese drietallen
+    """
+    # Verkrijg het getal N.
+    n = verkijg_n()
+
+    # Lijst met pythagorees getallen.
+    pythagorees_drietallen = verkrijg_pythagorees_drietallen(n)
+
+    # Ga door elk pythagorees drietal heen.
+    for drietal in pythagorees_drietallen:
+        # Toon het op het scherm.
+        print(str(drietal))
 
 
 if __name__ == "__main__":

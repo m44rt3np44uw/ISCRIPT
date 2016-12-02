@@ -5,23 +5,6 @@ https://dodona.ugent.be/nl/exercises/211647828/
 """
 
 
-def main() -> None:
-    """
-    Opdracht 1 - Interessante getallen.
-    """
-    # Verkrjg het aantal testgevallen.
-    aantal_testgevallen = verkrijg_aantal_testgevallen()
-
-    # Verkrijg het opgegeven aantal testgevallen.
-    testgevallen = verkrijg_testgevallen(aantal_testgevallen)
-
-    # Ga door elk testgeval heen.
-    for testgeval in testgevallen:
-
-        # Geef het antwoord op elk testgeval.
-        print(verkrijg_antwoord(int(testgeval)))
-
-
 def verkrijg_antwoord(testgeval: int) -> int:
     """
     Geef antwoord op de vraag; vind het kleinste natuurlijk getal dat deelbaar
@@ -39,7 +22,6 @@ def verkrijg_antwoord(testgeval: int) -> int:
         # Totdat is_deelbaar en controleer_som beide waar zijn.
         if is_deelbaar(testgeval, natuurlijk_getal) and controleer_som(
                 testgeval, natuurlijk_getal):
-
             # Stop de loop.
             break
 
@@ -91,7 +73,6 @@ def verkrijg_aantal_testgevallen() -> int:
 
     # Controleer of het wel minder dan 50 testgevallen zijn.
     while 0 < aantal_testgevallen > 50:
-
         # Vraag het aantal testgevallen.
         aantal_testgevallen = stel_interger_vraag(vraag)
 
@@ -120,7 +101,6 @@ def verkrijg_testgevallen(aantal_testgevallen: int) -> list:
 
         # Controleer of het testgeval wel tussen de 0 en de 101 ligt.
         while 0 < gegeven_testgeval > 100:
-
             # Zoniet stellen we de vraag opniew.
             gegeven_testgeval = stel_interger_vraag(vraag)
 
@@ -139,6 +119,22 @@ def stel_interger_vraag(vraag: str) -> int:
     :return: antwoord als integer.
     """
     return int(input(vraag + ": "))
+
+
+def main() -> None:
+    """
+    Opdracht 1 - Interessante getallen.
+    """
+    # Verkrjg het aantal testgevallen.
+    aantal_testgevallen = verkrijg_aantal_testgevallen()
+
+    # Verkrijg het opgegeven aantal testgevallen.
+    testgevallen = verkrijg_testgevallen(aantal_testgevallen)
+
+    # Ga door elk testgeval heen.
+    for testgeval in testgevallen:
+        # Geef het antwoord op elk testgeval.
+        print(verkrijg_antwoord(int(testgeval)))
 
 
 if __name__ == "__main__":

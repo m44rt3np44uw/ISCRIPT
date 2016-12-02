@@ -5,47 +5,6 @@ https://dodona.ugent.be/nl/exercises/511272034/
 """
 
 
-def main() -> None:
-    """
-    Opdracht 1 - Game of Life
-    """
-    # Een generatie
-    generatie = [[True] + [False] * 7 for _ in range(6)]
-
-    # Toon de generatie
-    toon_generatie(generatie)
-
-    # Lege regel
-    print("")
-
-    # Aantal buren op positie 0,0
-    print(aantal_buren(generatie, 0, 0))
-
-    # Aantal buren op positie 1,1
-    print(aantal_buren(generatie, 1, 1))
-
-    # Aantal buren op positie 2,2
-    print(aantal_buren(generatie, 2, 2))
-
-    # Lege regel
-    print("")
-
-    # Toon een aantal volgende generaties.
-    for generatie_stap in range(1, 6):
-
-        # Voor de duidelijkheid de generatiestap.
-        print("Generatie: ", generatie_stap)
-
-        # Toon de generatie.
-        toon_generatie(generatie)
-
-        # Voor de duidelijkheid een lege regel.
-        print("")
-
-        # Vernieuw de generatie.
-        generatie = volgende_generatie(generatie)
-
-
 def toon_generatie(generatie: list) -> None:
     """
     Toon de generatie in de console.
@@ -102,7 +61,6 @@ def aantal_buren(generatie: list, eigen_x: int, eigen_y: int) -> int:
 
                         # Controleert of het niet zijn eigen positie is.
                         if not is_eigen_positie((eigen_x, eigen_y), (x, y)):
-
                             # Zo ja, tel 1 buur erbij op.
                             buren += 1
 
@@ -134,13 +92,11 @@ def volgende_generatie(generatie: list) -> list:
 
             # Sla de nieuwe cel op op basis val spelregel 2.
             if not nieuwe_cel:
-
                 # Sla de nieuwe cel op op basis val spelregel 2.
                 nieuwe_cel = spelregel_2(cel, aantal_buren(generatie, x, y))
 
             # Sla de nieuwe cel op op basis val spelregel 3.
             if not nieuwe_cel:
-
                 # Sla de nieuwe cel op op basis val spelregel 3.
                 nieuwe_cel = spelregel_3(cel, aantal_buren(generatie, x, y))
 
@@ -241,6 +197,46 @@ def is_eigen_positie(eigen_coordinaat: tuple,
     :return: True of False als het opgegeven coordinaat hetzelfde is.
     """
     return eigen_coordinaat == opgegeven_coordinaat
+
+
+def main() -> None:
+    """
+    Opdracht 1 - Game of Life
+    """
+    # Een generatie
+    generatie = [[True] + [False] * 7 for _ in range(6)]
+
+    # Toon de generatie
+    toon_generatie(generatie)
+
+    # Lege regel
+    print("")
+
+    # Aantal buren op positie 0,0
+    print(aantal_buren(generatie, 0, 0))
+
+    # Aantal buren op positie 1,1
+    print(aantal_buren(generatie, 1, 1))
+
+    # Aantal buren op positie 2,2
+    print(aantal_buren(generatie, 2, 2))
+
+    # Lege regel
+    print("")
+
+    # Toon een aantal volgende generaties.
+    for generatie_stap in range(1, 6):
+        # Voor de duidelijkheid de generatiestap.
+        print("Generatie: ", generatie_stap)
+
+        # Toon de generatie.
+        toon_generatie(generatie)
+
+        # Voor de duidelijkheid een lege regel.
+        print("")
+
+        # Vernieuw de generatie.
+        generatie = volgende_generatie(generatie)
 
 
 if __name__ == "__main__":

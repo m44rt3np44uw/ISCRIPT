@@ -6,38 +6,6 @@ https://dodona.ugent.be/nl/exercises/1392321201/
 import csv
 
 
-def main() -> None:
-    # Zoekresultaat 1
-    prijzen('medt_opdracht_3_prijzen.csv', prijs='nobelprijs', jaar=1994)
-
-    # Lege regel
-    print("")
-
-    # Zoekresultaat 2
-    prijzen("medt_opdracht_3_prijzen.csv", prijs="nobelprijs",
-            discipline="wiskunde")
-
-    # Lege regel
-    print("")
-
-    # Zoekresultaat 3
-    prijzen("medt_opdracht_3_prijzen.csv", nationaliteit="bel")
-
-    # Lege regel
-    print("")
-
-    # Zoekresultaat 4
-    prijzen("medt_opdracht_3_prijzen.csv", discipline="scheikunde",
-            laureaten=3)
-
-    # Lege regel
-    print("")
-
-    # Zoekresultaat 5
-    prijzen("medt_opdracht_3_prijzen.csv", motivering="röntgen",
-            discipline="natuurkunde", nationaliteit="GB")
-
-
 def prijzen(prijzen_csv: str, prijs=None, discipline=None, jaar=None,
             nationaliteit=None, laureaten=None, motivering=None) -> None:
     """
@@ -297,6 +265,38 @@ def is_motivering(motivering: str, uitreikingen: list) -> list:
 
     # Geef de lijst terug.
     return lijst_uitreikingen
+
+
+def main() -> None:
+    # Zoekresultaat 1
+    prijzen('medt_opdracht_3_prijzen.csv', prijs='nobelprijs', jaar=1994)
+
+    # Lege regel
+    print("")
+
+    # Zoekresultaat 2
+    prijzen("medt_opdracht_3_prijzen.csv", prijs="nobelprijs",
+            discipline="wiskunde")
+
+    # Lege regel
+    print("")
+
+    # Zoekresultaat 3
+    prijzen("medt_opdracht_3_prijzen.csv", nationaliteit="bel")
+
+    # Lege regel
+    print("")
+
+    # Zoekresultaat 4
+    prijzen("medt_opdracht_3_prijzen.csv", discipline="scheikunde",
+            laureaten=3)
+
+    # Lege regel
+    print("")
+
+    # Zoekresultaat 5
+    prijzen("medt_opdracht_3_prijzen.csv", motivering="röntgen",
+            discipline="natuurkunde", nationaliteit="GB")
 
 
 if __name__ == "__main__":

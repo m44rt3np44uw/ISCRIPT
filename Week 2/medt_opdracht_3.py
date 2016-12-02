@@ -5,24 +5,6 @@ https://dodona.ugent.be/nl/exercises/990750894/
 """
 
 
-def main() -> None:
-    """
-    Opdracht 3 - Loonbrief
-    :return:
-    """
-    # Verkrijg het startbedrag.
-    startbedrag = verkrijg_startbedrag()
-
-    # Verkijg een lijst met lonen.
-    lonen = verkrijg_lonen()
-
-    # Verkrijg het gemiddelde loon.
-    gemiddelde_loon = verkrijg_gemiddeld_loon(lonen)
-
-    # Geef het antwoord.
-    geef_antwoord(startbedrag, lonen, gemiddelde_loon)
-
-
 def verkrijg_startbedrag() -> int:
     """
     Verkrijg het startbedrag van de werknemers.
@@ -50,7 +32,6 @@ def verkrijg_lonen() -> list:
         # Controleer of er meer dan 3 werknemers zijn en de invoer niet gelijk
         # is aan het woord stop.
         if len(lonen) > 3 and invoer.lower() == "stop":
-
             # Stop de loop.
             break
 
@@ -92,7 +73,6 @@ def geef_antwoord(startbedrag: int, lonen: list,
 
     # Ga door elke loon heen.
     for loon_index, loon in enumerate(lonen):
-
         # Tel het loon erbij op.
         totaal_loon = totaal_loon + loon
 
@@ -102,6 +82,24 @@ def geef_antwoord(startbedrag: int, lonen: list,
 
     # Geef het gemiddelde loon.
     print("gemiddeld loon: €" + str("{0:.2f}".format(gemiddelde_loon)))
+
+
+def main() -> None:
+    """
+    Opdracht 3 - Loonbrief
+    :return:
+    """
+    # Verkrijg het startbedrag.
+    startbedrag = verkrijg_startbedrag()
+
+    # Verkijg een lijst met lonen.
+    lonen = verkrijg_lonen()
+
+    # Verkrijg het gemiddelde loon.
+    gemiddelde_loon = verkrijg_gemiddeld_loon(lonen)
+
+    # Geef het antwoord.
+    geef_antwoord(startbedrag, lonen, gemiddelde_loon)
 
 
 if __name__ == "__main__":

@@ -6,6 +6,37 @@ https://dodona.ugent.be/nl/exercises/1620493816/
 import random
 
 
+def zoemzin1(buzzez: tuple) -> str:
+    """
+    Pakt een willekeurig woord uit elke woordenlijst, en voegt deze woorden
+    samen tot één enkele string (in de volgorde van de gegeven woordenlijsten).
+
+    :param buzzez: Een lijst met buzz lijsten als tuple.
+    :return: een zoemzin als string.
+    """
+    # Zoemzin.
+    zoemzin = []
+
+    # Loop door elke lijst met buzz woorden heen.
+    for buzz in buzzez:
+        # Voeg een random woord toe uit de buzz lijst.
+        zoemzin.append(random.choice(buzz))
+
+    # Geef de zoemzin terug.
+    return " ".join(zoemzin)
+
+
+def zoemzin2(*args) -> str:
+    """
+    Pakt een willekeurig woord uit elke woordenlijst, en voegt deze woorden
+    samen tot één enkele string (in de volgorde van de gegeven woordenlijsten).
+
+    :param buzzez: Een lijst met buzz lijsten als tuple.
+    :return: een zoemzin als string.
+    """
+    return zoemzin1(args)
+
+
 def main() -> None:
     """
     Opdracht 4 - Zoemzinnen
@@ -85,37 +116,6 @@ def main() -> None:
 
     # Zoemzin 2
     print(zoemzin2(shakespeare1, shakespeare2, shakespeare3, shakespeare4))
-
-
-def zoemzin1(buzzez: tuple) -> str:
-    """
-    Pakt een willekeurig woord uit elke woordenlijst, en voegt deze woorden
-    samen tot één enkele string (in de volgorde van de gegeven woordenlijsten).
-
-    :param buzzez: Een lijst met buzz lijsten als tuple.
-    :return: een zoemzin als string.
-    """
-    # Zoemzin.
-    zoemzin = []
-
-    # Loop door elke lijst met buzz woorden heen.
-    for buzz in buzzez:
-        # Voeg een random woord toe uit de buzz lijst.
-        zoemzin.append(random.choice(buzz))
-
-    # Geef de zoemzin terug.
-    return " ".join(zoemzin)
-
-
-def zoemzin2(*args) -> str:
-    """
-    Pakt een willekeurig woord uit elke woordenlijst, en voegt deze woorden
-    samen tot één enkele string (in de volgorde van de gegeven woordenlijsten).
-
-    :param buzzez: Een lijst met buzz lijsten als tuple.
-    :return: een zoemzin als string.
-    """
-    return zoemzin1(args)
 
 
 if __name__ == "__main__":

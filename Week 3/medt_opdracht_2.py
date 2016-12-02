@@ -5,27 +5,8 @@ https://dodona.ugent.be/nl/exercises/849566952/
 """
 
 
-def main() -> None:
-    """
-    Opdracht 2 - Levensverwachting
-    """
-    # Persoon 1
-    levensverwachting("man", True, 2, 10, True)
-
-    # Persoon 2
-    levensverwachting("man", True, 5, 5, True)
-
-    # Persoon 3
-    levensverwachting("vrouw", False, 5, 0, False)
-
-    # Persoon 4
-    levensverwachting("vrouw", False, 3, 14, True)
-
-    # Persoon 5
-    levensverwachting("man", False, 4, 4, False)
-
-
-def levensverwachting(geslacht: str, roker: bool, sport: int, alcohol: int, fastfood: bool) -> None:
+def levensverwachting(geslacht: str, roker: bool, sport: int, alcohol: int,
+                      fastfood: bool) -> None:
     """
     Geef de levensverwachting van een persoon op basis van de volgende invoer.
 
@@ -72,7 +53,6 @@ def verkrijg_geslacht_jaren(geslacht: str) -> int:
 
     # Controleer of de persoon een vrouw is.
     if geslacht == "vrouw":
-
         # Tel er 4 jaar bij op.
         aantal_jaren += 4
 
@@ -134,6 +114,26 @@ def verkrijg_fastfood_jaren(fastfood: bool) -> int:
     :return: Het aantal fastfood jaren als boolean.
     """
     return 0 if fastfood else 3
+
+
+def main() -> None:
+    """
+    Opdracht 2 - Levensverwachting
+    """
+    # Persoon 1
+    levensverwachting("man", True, 2, 10, True)
+
+    # Persoon 2
+    levensverwachting("man", True, 5, 5, True)
+
+    # Persoon 3
+    levensverwachting("vrouw", False, 5, 0, False)
+
+    # Persoon 4
+    levensverwachting("vrouw", False, 3, 14, True)
+
+    # Persoon 5
+    levensverwachting("man", False, 4, 4, False)
 
 
 if __name__ == "__main__":

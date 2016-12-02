@@ -5,18 +5,6 @@ https://dodona.ugent.be/nl/exercises/738605545/
 """
 
 
-def main() -> None:
-    """
-    Opdracht 1 - Heen en terug
-    :return:
-    """
-    # Boodschap 1
-    decodeer("aoesifibolwkrdexeioayngoxxfhtslhtlx", 5)
-
-    # Boodschap 2
-    decodeer("aohpdntilirndsnefxxftgonomceexxrloewftmyex", 6)
-
-
 def decodeer(geheime_boodschap: str, aantal_kolommen: int) -> None:
     """
     :param geheime_boodschap: Geheime boodschap als string.
@@ -47,7 +35,6 @@ def geef_antwoord(geheime_boodschap: list, aantal_kolommen: int) -> None:
 
         # Ga door elke rij heen.
         for rij_nummer in range(0, aantal_rijen):
-
             # Voeg het karakter toe aan het antwoord.
             boodschap += geheime_boodschap[rij_nummer][kolom_nummer]
 
@@ -78,7 +65,6 @@ def naar_lijst(geheime_boodschap: str, aantal_kolommen: int) -> list:
 
         # Controleer of de rij oneven is.
         if not is_even(index):
-
             # Draai de volgorde om.
             rij = rij[::-1]
 
@@ -100,6 +86,18 @@ def is_even(getal: int) -> bool:
     :return: Antwoord op de vraag als boolean.
     """
     return getal % 2 == 0
+
+
+def main() -> None:
+    """
+    Opdracht 1 - Heen en terug
+    :return:
+    """
+    # Boodschap 1
+    decodeer("aoesifibolwkrdexeioayngoxxfhtslhtlx", 5)
+
+    # Boodschap 2
+    decodeer("aohpdntilirndsnefxxftgonomceexxrloewftmyex", 6)
 
 
 if __name__ == "__main__":

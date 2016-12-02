@@ -6,26 +6,6 @@ https://dodona.ugent.be/nl/exercises/417422714/
 import string
 
 
-def main() -> None:
-    """
-    Opdracht 5 - Sterke wachtwoorden
-    """
-    # Verkrijg het aantal wachtwoorden.
-    aantal_wachtwoorden = verkrijg_aantal_wachtwoorden()
-
-    # Verkrijg de wachtwoorden.
-    wachtwoorden = verkrijg_wachtwoorden(aantal_wachtwoorden)
-
-    # Ga door elk wachtwoord heen.
-    for wachtwoord in wachtwoorden:
-
-        # Doe de controle en verkijg het aantal goed gecontroleerde vragen.
-        aantal_goed = doe_controle(wachtwoord)
-
-        # Toon het antwoord in de console.
-        geef_antwoord(aantal_goed)
-
-
 def is_minstens_acht_karakters(wachtwoord: str) -> bool:
     """
     Controleert of het wachtwoord minimaal 8 karakters lang is.
@@ -49,7 +29,6 @@ def heeft_minimaal_een_hoofdletter(wachtwoord: str) -> bool:
 
         # Controleer of het karakter een hoofdletter is.
         if karakter.isupper():
-
             # Zo ja, geef true terug.
             return True
 
@@ -69,7 +48,6 @@ def heeft_minimaal_een_kleine_letter(wachtwoord: str) -> bool:
 
         # Controleer of het karakter een kleine letter is.
         if karakter.islower():
-
             # Zo ja, geef true terug.
             return True
 
@@ -89,7 +67,6 @@ def heeft_minimaal_een_cijfer(wachtwoord: str) -> bool:
 
         # Controleer of het karakter een cijfer is.
         if karakter.isnumeric():
-
             # Zo ja, geef true terug.
             return True
 
@@ -112,7 +89,6 @@ def heeft_minimaal_een_speciaal_karakter(wachtwoord: str) -> bool:
 
         # Controleer of het karakter een speciaal karakter is.
         if karakter in speciale_karakters:
-
             # Zo ja, geef true terug.
             return True
 
@@ -141,7 +117,6 @@ def verkrijg_wachtwoorden(aantal_wachtwoorden: int) -> list:
 
     # Vraag de wachtwoorden.
     for wachtwoord_nummer in range(0, aantal_wachtwoorden):
-
         # Vraag het wachtwoord.
         wachtwoord = input("Wachtwoord " + str(wachtwoord_nummer + 1) + ": ")
 
@@ -164,31 +139,26 @@ def doe_controle(wachtwoord: str) -> int:
 
     # Controleer of het wachtwoord minstens 8 karakters lang is.
     if is_minstens_acht_karakters(wachtwoord):
-
         # Verhoog het aantal goede controles.
         aantal_controles_goed += 1
 
     # Controleer of het minimaal 1 hoofdletter heeft.
     if heeft_minimaal_een_hoofdletter(wachtwoord):
-
         # Verhoog het aantal goede controles.
         aantal_controles_goed += 1
 
     # Controleer of het minimaal 1 kleine letter heeft.
     if heeft_minimaal_een_kleine_letter(wachtwoord):
-
         # Verhoog het aantal goede controles.
         aantal_controles_goed += 1
 
     # Controleer of het minimaal 1 cijfer heeft.
     if heeft_minimaal_een_cijfer(wachtwoord):
-
         # Verhoog het aantal goede controles.
         aantal_controles_goed += 1
 
     # Controleer of het minimaal 1 speciaal karakter heeft.
     if heeft_minimaal_een_speciaal_karakter(wachtwoord):
-
         # Verhoog het aantal goede controles.
         aantal_controles_goed += 1
 
@@ -223,6 +193,25 @@ def geef_antwoord(aantal_controles_goed: int) -> None:
 
     # Print het antwoord in de console.
     print(controle)
+
+
+def main() -> None:
+    """
+    Opdracht 5 - Sterke wachtwoorden
+    """
+    # Verkrijg het aantal wachtwoorden.
+    aantal_wachtwoorden = verkrijg_aantal_wachtwoorden()
+
+    # Verkrijg de wachtwoorden.
+    wachtwoorden = verkrijg_wachtwoorden(aantal_wachtwoorden)
+
+    # Ga door elk wachtwoord heen.
+    for wachtwoord in wachtwoorden:
+        # Doe de controle en verkijg het aantal goed gecontroleerde vragen.
+        aantal_goed = doe_controle(wachtwoord)
+
+        # Toon het antwoord in de console.
+        geef_antwoord(aantal_goed)
 
 
 if __name__ == "__main__":

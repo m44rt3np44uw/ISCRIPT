@@ -7,19 +7,6 @@ from random import randint
 from collections import Counter
 
 
-def main() -> None:
-    """
-    Opdracht 3 - Experimentele verjaardagsparadox
-    """
-    # gebeuren samen
-    print(gebeuren_samen(6, 3))
-    print(gebeuren_samen(6, 3))
-
-    # Schat kans
-    print("%.4f" % schat_kans(6, 2, 10000))
-    print("%.4f" % schat_kans(365, 23, 10000))
-
-
 def gebeuren_samen(aantal_mogelijke_uitkomsten: int,
                    aantal_willekeurige_uikomsten: int) -> bool:
     """
@@ -73,6 +60,19 @@ def schat_kans(aantal_mogelijke_uitkomsten: int,
 
     # Geef de kans terug.
     return float(aantal_dubbele_uitkomsten / aantal_testen)
+
+
+def main() -> None:
+    """
+    Opdracht 3 - Experimentele verjaardagsparadox
+    """
+    # gebeuren samen
+    print(gebeuren_samen(6, 3))
+    print(gebeuren_samen(6, 3))
+
+    # Schat kans
+    print("%.4f" % schat_kans(6, 2, 10000))
+    print("%.4f" % schat_kans(365, 23, 10000))
 
 
 if __name__ == "__main__":

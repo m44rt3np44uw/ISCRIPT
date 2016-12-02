@@ -7,23 +7,6 @@ import math
 import string
 
 
-def main() -> None:
-    """
-    Opdracht 3 - Vigenecodering
-    """
-    # Codeer 1
-    codeer("NOBODY EXPECTS THE SPANISH INQUISITION!", "CIRCUS")
-
-    # Decodeer 1
-    decodeer("PWSQXQ MORYUVA VBW AGCHAUP KHIWQJKNAQV!", "CIRCUS")
-
-    # Codeer 2
-    codeer("OH SHUT UP! AND GO AND CHANGE YOUR ARMOUR!", "ARTHUR")
-
-    # Decodeer 2
-    decodeer("OY ZBLT NW! AEW AF RGK THRGNY YFNY RRDHBL!", "ARTHUR")
-
-
 def codeer(originele_tekst: str, sleutelwoord: str) -> None:
     """
     Codeer de tekst.
@@ -168,6 +151,23 @@ def geef_letter(letter_uit_tekst: str, letter_uit_sleutel: str,
 
         # Geef de versleutelde letter terug.
         return string.ascii_uppercase[versleutelde_letter_index]
+
+
+def main() -> None:
+    """
+    Opdracht 3 - Vigenecodering
+    """
+    # Codeer 1
+    codeer("NOBODY EXPECTS THE SPANISH INQUISITION!", "CIRCUS")
+
+    # Decodeer 1
+    decodeer("PWSQXQ MORYUVA VBW AGCHAUP KHIWQJKNAQV!", "CIRCUS")
+
+    # Codeer 2
+    codeer("OH SHUT UP! AND GO AND CHANGE YOUR ARMOUR!", "ARTHUR")
+
+    # Decodeer 2
+    decodeer("OY ZBLT NW! AEW AF RGK THRGNY YFNY RRDHBL!", "ARTHUR")
 
 
 if __name__ == "__main__":

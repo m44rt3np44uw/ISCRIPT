@@ -6,35 +6,6 @@ https://dodona.ugent.be/nl/exercises/1748605282/
 from math import radians, sqrt, cos, sin, atan2, pow
 
 
-def main() -> None:
-    """
-    Opdracht 5 - Luchthavens
-    """
-    # Lees de luchthavens
-    luchthavens = lees_luchthavens('medt_opdracht_5_luchthavens.txt')
-
-    # Luchthaven 1
-    print(luchthavens['ADK'])
-
-    # Luchthaven 2
-    print(luchthavens['DCA'])
-
-    # Luchthaven 3
-    print(luchthavens['4OM'])
-
-    # Afstand 1
-    afstand_1 = afstand('P60', 'MSN', luchthavens)
-    print("%.8f" % afstand_1)
-
-    # Afstand 2
-    afstand_2 = afstand('ADK', 'DCA', luchthavens)
-    print("%.8f" % afstand_2)
-
-    # Tussenlanding
-    tussenlanding_1 = tussenlanding('ADK', 'DCA', luchthavens, 4000)
-    print(tussenlanding_1)
-
-
 def lees_luchthavens(bestandsnaam: str) -> dict:
     """
     Verkrijg alle luchthavens uit het opgegeven bestand.
@@ -98,8 +69,8 @@ def afstand(luchthaven_code_1: str, luchthaven_code_2: str,
     return 6372.795 * atan2(sqrt(
         pow(cos(breedteligging_2) * sin(lengteligging_1 - lengteligging_2),
             2) + pow(cos(breedteligging_1) * sin(breedteligging_2) - sin(
-                breedteligging_1) * cos(breedteligging_2) * cos(
-                lengteligging_1 - lengteligging_2), 2)),
+            breedteligging_1) * cos(breedteligging_2) * cos(
+            lengteligging_1 - lengteligging_2), 2)),
         sin(breedteligging_1) * sin(
             breedteligging_2) + cos(
             breedteligging_1) * cos(
@@ -145,11 +116,10 @@ def tussenlanding(luchthaven_code_1: str, luchthaven_code_2: str,
 
             # Controleer of beide punten we te bereiken zijn.
             if afstand_a_naar_c <= reikwijdte and \
-                    afstand_c_naar_b <= reikwijdte:
+                            afstand_c_naar_b <= reikwijdte:
 
                 # Contoleer of van punt A naar B korter is.
                 if afstand_a_naar_b < kleinste_afstand:
-
                     # Sla de afstand op.
                     kleinste_afstand = afstand_a_naar_b
 
@@ -166,6 +136,35 @@ def tussenlanding(luchthaven_code_1: str, luchthaven_code_2: str,
 
         # Geef de luchthaven code terug.
         return luchthaven_code
+
+
+def main() -> None:
+    """
+    Opdracht 5 - Luchthavens
+    """
+    # Lees de luchthavens
+    luchthavens = lees_luchthavens('medt_opdracht_5_luchthavens.txt')
+
+    # Luchthaven 1
+    print(luchthavens['ADK'])
+
+    # Luchthaven 2
+    print(luchthavens['DCA'])
+
+    # Luchthaven 3
+    print(luchthavens['4OM'])
+
+    # Afstand 1
+    afstand_1 = afstand('P60', 'MSN', luchthavens)
+    print("%.8f" % afstand_1)
+
+    # Afstand 2
+    afstand_2 = afstand('ADK', 'DCA', luchthavens)
+    print("%.8f" % afstand_2)
+
+    # Tussenlanding
+    tussenlanding_1 = tussenlanding('ADK', 'DCA', luchthavens, 4000)
+    print(tussenlanding_1)
 
 
 if __name__ == "__main__":

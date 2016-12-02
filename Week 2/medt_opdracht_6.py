@@ -5,17 +5,6 @@ https://dodona.ugent.be/nl/exercises/695254392/
 """
 
 
-def main() -> None:
-    """
-    Opdracht 6 - Rorschachtest
-    """
-    # Verkrijg het patroon
-    patroon = verkrijg_patroon()
-
-    # Toon de Rorschachtest
-    toon_rorschachtest(patroon)
-
-
 def verkrijg_patroon() -> list:
     """
     Verkrijg het patroon.
@@ -33,7 +22,6 @@ def verkrijg_patroon() -> list:
 
         # Zolang er geen lege regel gevonden is.
         if not invoer:
-
             # Stop de loop.
             break
 
@@ -52,9 +40,19 @@ def toon_rorschachtest(patroon: list) -> None:
     """
     # Loop door elke regel heen.
     for regel in patroon:
-
         # Print de regel + de regel in spiegelbeeld.
         print(regel + regel[::-1])
+
+
+def main() -> None:
+    """
+    Opdracht 6 - Rorschachtest
+    """
+    # Verkrijg het patroon
+    patroon = verkrijg_patroon()
+
+    # Toon de Rorschachtest
+    toon_rorschachtest(patroon)
 
 
 if __name__ == "__main__":

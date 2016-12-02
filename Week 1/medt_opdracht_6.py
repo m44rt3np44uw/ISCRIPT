@@ -5,20 +5,6 @@ https://dodona.ugent.be/nl/exercises/1173716008/
 """
 
 
-def main() -> None:
-    """
-    Opdracht 6 - Zweettest
-    """
-    # Verkrijg de leeftijd in maanden en de chlorideconcentratie.
-    leeftijd_in_maanden, chlorideconcentratie = verkrijg_waarde()
-
-    # Verkrijg de uitslag.
-    uitslag = verkrijg_uitslag(leeftijd_in_maanden, chlorideconcentratie)
-
-    # Toon de uitslag in het console.
-    print(uitslag)
-
-
 def verkrijg_waarde() -> tuple:
     """
     Verkrijg de leeftijd en de chlorideconcentratie in mmol/L van de patient.
@@ -74,6 +60,20 @@ def verkrijg_uitslag(leeftijd_in_maanden: int,
         # chlorideconcentratie tussen 40 – 59 mmol/L
         elif 40 <= chlorideconcentratie <= 59:
             return soorten_uitslagen[1]
+
+
+def main() -> None:
+    """
+    Opdracht 6 - Zweettest
+    """
+    # Verkrijg de leeftijd in maanden en de chlorideconcentratie.
+    leeftijd_in_maanden, chlorideconcentratie = verkrijg_waarde()
+
+    # Verkrijg de uitslag.
+    uitslag = verkrijg_uitslag(leeftijd_in_maanden, chlorideconcentratie)
+
+    # Toon de uitslag in het console.
+    print(uitslag)
 
 
 if __name__ == '__main__':

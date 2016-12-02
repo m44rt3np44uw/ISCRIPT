@@ -5,6 +5,34 @@ https://dodona.ugent.be/nl/exercises/1813154454/
 """
 
 
+def converteer_tijd(tijd: float, formule_naar_seconden: int) -> (
+        float, float):
+    """
+    Converteert een float naar een tijdsnotatie als int en
+    het overige als float.
+
+    :param tijd:                    als float
+    :param formule_naar_seconden:   als int
+    :return:                        (tijd: float, overige_seconden: float)
+    """
+    return divmod(tijd, formule_naar_seconden)
+
+
+def markup(getal: int, string_een: str, string_twee: str) -> str:
+    """
+    Maak een mooie markup.
+
+    :param getal:       int als dagen, uren, minuten of seconden.
+    :param string_een:  string als 'dagen', 'uren', 'minuten' of 'seconden'.
+    :param string_twee: string als 'dag', 'uur', 'minuut' of 'seconde'.
+    :return:            string string_een of string_twee
+    """
+    if getal > 1:
+        return string_een
+    else:
+        return string_twee
+
+
 def main() -> None:
     """
     Opdracht 1 - Tijdmeting op Mars
@@ -52,34 +80,6 @@ def main() -> None:
           "en",
           int(aarde_seconden),
           markup(int(aarde_seconden), "seconden", "seconde"))
-
-
-def converteer_tijd(tijd: float, formule_naar_seconden: int) -> (
-        float, float):
-    """
-    Converteert een float naar een tijdsnotatie als int en
-    het overige als float.
-
-    :param tijd:                    als float
-    :param formule_naar_seconden:   als int
-    :return:                        (tijd: float, overige_seconden: float)
-    """
-    return divmod(tijd, formule_naar_seconden)
-
-
-def markup(getal: int, string_een: str, string_twee: str) -> str:
-    """
-    Maak een mooie markup.
-
-    :param getal:       int als dagen, uren, minuten of seconden.
-    :param string_een:  string als 'dagen', 'uren', 'minuten' of 'seconden'.
-    :param string_twee: string als 'dag', 'uur', 'minuut' of 'seconde'.
-    :return:            string string_een of string_twee
-    """
-    if getal > 1:
-        return string_een
-    else:
-        return string_twee
 
 
 if __name__ == "__main__":

@@ -6,31 +6,6 @@ https://dodona.ugent.be/nl/exercises/189652425/
 import string
 
 
-def main() -> None:
-    """
-    Opdracht 2 - Cryptogrammen
-    """
-    # Voorbeeld 1
-    opgave = 'Qmvrbwlf xwkd iopzlw vf zml pcwvfxzvyl.'
-    oplossing = 'Ch?ld??? ??ow fas??r ?n ??? ?p?i?gt?me.'
-    print(cryptogram(opgave, oplossing))
-
-    # Voorbeeld 2
-    opgave = 'Zhp suxobpuw sbmtkopw Nxwkdnx.'
-    oplossing = '?h? p?n???a? ?rod?ces I???l??.'
-    print(cryptogram(opgave, oplossing))
-
-    # Voorbeeld 3
-    opgave = 'Jujso ldmtq wyjqi tvadi ltek tq lads tw t wcqnej xjee.'
-    oplossing = '?v?ry ??ma? ?p??? ?bout h??f ?? ???? ?s ? ??ng?e c?l?.'
-    print(cryptogram(opgave, oplossing))
-
-    # Voorbeeld 4
-    opgave = "V atult'a amrdd qvl zr nrbrqbrn zx v wumvl v medr vivx."
-    oplossing = "? ????k's ???l? ??n ?? ??t???ed ?y a hum?? ? ?i?? ?w??."
-    print(cryptogram(opgave, oplossing))
-
-
 def cryptogram(opgave: str, oplossing: str) -> str:
     """
     De eerste string stelt de gegeven tekst voor uit de opgave van een
@@ -147,6 +122,31 @@ def verkrijg_beschikbare_letter(lijst_oplossing: list,
 
     # Geef de beschikbare letters terug.
     return beschikbare_letters
+
+
+def main() -> None:
+    """
+    Opdracht 2 - Cryptogrammen
+    """
+    # Voorbeeld 1
+    opgave = 'Qmvrbwlf xwkd iopzlw vf zml pcwvfxzvyl.'
+    oplossing = 'Ch?ld??? ??ow fas??r ?n ??? ?p?i?gt?me.'
+    print(cryptogram(opgave, oplossing))
+
+    # Voorbeeld 2
+    opgave = 'Zhp suxobpuw sbmtkopw Nxwkdnx.'
+    oplossing = '?h? p?n???a? ?rod?ces I???l??.'
+    print(cryptogram(opgave, oplossing))
+
+    # Voorbeeld 3
+    opgave = 'Jujso ldmtq wyjqi tvadi ltek tq lads tw t wcqnej xjee.'
+    oplossing = '?v?ry ??ma? ?p??? ?bout h??f ?? ???? ?s ? ??ng?e c?l?.'
+    print(cryptogram(opgave, oplossing))
+
+    # Voorbeeld 4
+    opgave = "V atult'a amrdd qvl zr nrbrqbrn zx v wumvl v medr vivx."
+    oplossing = "? ????k's ???l? ??n ?? ??t???ed ?y a hum?? ? ?i?? ?w??."
+    print(cryptogram(opgave, oplossing))
 
 
 if __name__ == "__main__":

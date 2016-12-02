@@ -6,20 +6,6 @@ https://dodona.ugent.be/nl/exercises/56374393/
 import string
 
 
-def main() -> None:
-    """
-    Opdracht 4 - Paardensprong
-    """
-    # Verkrijg de begin en eind positie.
-    (positie_1, positie_2) = verkrijg_posities()
-
-    # Verkrijg alle mogelijke stappen vanuit de begin positie.
-    mogelijk = bereken_stap(positie_1, positie_2)
-
-    # Toon de informatie.
-    geef_informatie(positie_1, positie_2, mogelijk)
-
-
 def bereken_stap(positie_1, positie_2) -> bool:
     """
     Bereken of de stap gemaakt kan worden.
@@ -94,7 +80,7 @@ def geef_informatie(positie_1: str, positie_2: str, kan: bool) -> None:
     :param kan: boolean of het kan of niet.
     """
     print('het paard kan{} springen van {} naar {}'.format(
-            [' niet', ''][kan], positie_1, positie_2))
+        [' niet', ''][kan], positie_1, positie_2))
 
 
 def verkrijg_posities() -> (str, str):
@@ -107,6 +93,20 @@ def verkrijg_posities() -> (str, str):
     positie_2 = input("Eindpunt  : ")
 
     return positie_1, positie_2
+
+
+def main() -> None:
+    """
+    Opdracht 4 - Paardensprong
+    """
+    # Verkrijg de begin en eind positie.
+    (positie_1, positie_2) = verkrijg_posities()
+
+    # Verkrijg alle mogelijke stappen vanuit de begin positie.
+    mogelijk = bereken_stap(positie_1, positie_2)
+
+    # Toon de informatie.
+    geef_informatie(positie_1, positie_2, mogelijk)
 
 
 if __name__ == '__main__':

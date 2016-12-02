@@ -5,38 +5,6 @@ https://dodona.ugent.be/nl/exercises/751779411/
 """
 
 
-def main() -> None:
-    """
-    Opdracht 2 - 3 + 1 gratis
-    """
-    # Alle prijzen van bepaalde producten in een lijst.
-    prijzen = [3.23, 5.32, 8.23, 2.23, 9.98, 7.43, 6.43, 8.23, 4.23]
-
-    # Prijzen via de methode samen
-    prijs_samen = samen(prijzen)
-
-    # Prijzen via de methode groeperen.
-    prijzen_gegroepeerd = groeperen(prijzen)
-
-    # Prijs via de methode gegroepeerd.
-    prijs_gegroepeerd = gegroepeerd(prijzen)
-
-    # De winst
-    de_winst = winst(prijzen)
-
-    # Print samen
-    print("%.2f" % prijs_samen)
-
-    # Print groeperen
-    print(prijzen_gegroepeerd)
-
-    # Print gegroepeerd
-    print("%.2f" % prijs_gegroepeerd)
-
-    # Print de winst.
-    print("%.2f" % de_winst)
-
-
 def samen(prijzen: list) -> float:
     """
     Samen is een methode die het totaalbedrag teruggeeft dat je zal
@@ -76,7 +44,6 @@ def groeperen(prijzen: list) -> list:
 
     # Ga door de hele lijst heen in stappen van 4.
     for x in range(0, len(gesorteerde_prijzen), 4):
-
         # Voeg het groepje producten toe aan de groep.
         groep.append(tuple(gesorteerde_prijzen[x:x + 4]))
 
@@ -145,6 +112,38 @@ def verkrijg_gesorteerde_prijzen(prijzen: list) -> list:
     :return: Een gesorteerde lijst prijzen als list.
     """
     return sorted(prijzen, reverse=True)
+
+
+def main() -> None:
+    """
+    Opdracht 2 - 3 + 1 gratis
+    """
+    # Alle prijzen van bepaalde producten in een lijst.
+    prijzen = [3.23, 5.32, 8.23, 2.23, 9.98, 7.43, 6.43, 8.23, 4.23]
+
+    # Prijzen via de methode samen
+    prijs_samen = samen(prijzen)
+
+    # Prijzen via de methode groeperen.
+    prijzen_gegroepeerd = groeperen(prijzen)
+
+    # Prijs via de methode gegroepeerd.
+    prijs_gegroepeerd = gegroepeerd(prijzen)
+
+    # De winst
+    de_winst = winst(prijzen)
+
+    # Print samen
+    print("%.2f" % prijs_samen)
+
+    # Print groeperen
+    print(prijzen_gegroepeerd)
+
+    # Print gegroepeerd
+    print("%.2f" % prijs_gegroepeerd)
+
+    # Print de winst.
+    print("%.2f" % de_winst)
 
 
 if __name__ == "__main__":

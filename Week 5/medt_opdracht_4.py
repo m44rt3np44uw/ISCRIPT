@@ -5,14 +5,6 @@ https://dodona.ugent.be/nl/exercises/1985652400/
 """
 
 
-def main() -> None:
-    """
-    Opdracht 4 - Bestanden kopieren
-    """
-    # Bestand 1
-    kopieer('medt_opdracht_4_bron.txt', 'medt_opdracht_4_doel.txt')
-
-
 def kopieer(bronbestand: str, doelbestand: str) -> bool:
     """
     Kopieer de inhoud van een bronbestand naar het doelbestand.
@@ -44,6 +36,14 @@ def kopieer(bronbestand: str, doelbestand: str) -> bool:
 
         # Het kopieren is niet gelukt.
         return False
+
+
+def main() -> None:
+    """
+    Opdracht 4 - Bestanden kopieren
+    """
+    # Bestand 1
+    kopieer('medt_opdracht_4_bron.txt', 'medt_opdracht_4_doel.txt')
 
 
 if __name__ == "__main__":
