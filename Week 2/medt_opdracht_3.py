@@ -50,6 +50,7 @@ def verkrijg_lonen() -> list:
         # Controleer of er meer dan 3 werknemers zijn en de invoer niet gelijk
         # is aan het woord stop.
         if len(lonen) > 3 and invoer.lower() == "stop":
+
             # Stop de loop.
             break
 
@@ -91,6 +92,7 @@ def geef_antwoord(startbedrag: int, lonen: list,
 
     # Ga door elke loon heen.
     for loon_index, loon in enumerate(lonen):
+
         # Tel het loon erbij op.
         totaal_loon = totaal_loon + loon
 

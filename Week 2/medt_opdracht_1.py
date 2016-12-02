@@ -17,6 +17,7 @@ def main() -> None:
 
     # Ga door elk testgeval heen.
     for testgeval in testgevallen:
+
         # Geef het antwoord op elk testgeval.
         print(verkrijg_antwoord(int(testgeval)))
 
@@ -38,6 +39,8 @@ def verkrijg_antwoord(testgeval: int) -> int:
         # Totdat is_deelbaar en controleer_som beide waar zijn.
         if is_deelbaar(testgeval, natuurlijk_getal) and controleer_som(
                 testgeval, natuurlijk_getal):
+
+            # Stop de loop.
             break
 
         # Zo niet tel het getal op.

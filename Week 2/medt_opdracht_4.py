@@ -96,6 +96,7 @@ def verkijg_letters(palindroomzin: str) -> str:
 
         # Controleer of het karakter een letter is.
         if karakter.isalpha():
+
             # Voeg het karakter toe aan de zin.
             zin += karakter
 
@@ -112,8 +113,10 @@ def geef_antwoord(palindroomzin: bool) -> None:
     # Standaard zin.
     zin = "palindroomzin"
 
-    # Als het geen palindroomzin is voeg het woord geen ervoor aan toe.
+    # Als het geen palindroomzin is.
     if not palindroomzin:
+
+        # Voeg het woord geen ervoor aan toe
         zin = "geen " + zin
 
     # Geef de zin weer in de console.

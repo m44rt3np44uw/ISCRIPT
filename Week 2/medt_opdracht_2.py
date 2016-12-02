@@ -70,5 +70,6 @@ def verkijg_n() -> int:
     """
     return int(input("N: "))
 
+
 if __name__ == "__main__":
     main()

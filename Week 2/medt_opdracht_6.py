@@ -33,6 +33,8 @@ def verkrijg_patroon() -> list:
 
         # Zolang er geen lege regel gevonden is.
         if not invoer:
+
+            # Stop de loop.
             break
 
         # Voeg de invoer toe aan de lijst.
