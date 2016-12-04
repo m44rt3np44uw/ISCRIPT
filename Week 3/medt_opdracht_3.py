@@ -66,13 +66,11 @@ def geef_antwoord(tekst: str, verlengd_sleutelwoord: str,
     # Versleutelde tekst
     versleutelde_tekst = ""
 
-    # Count
-    count = 0
-
     # Loop door elk letter van de originele tekst heen.
-    for letter_tekst in list(tekst):
+    for index, letter_tekst in enumerate(list(tekst)):
+
         # Verkrijg de letter uit het sleutelwoord.
-        letter_sleutelwoord = verlengd_sleutelwoord[count:count + 1]
+        letter_sleutelwoord = verlengd_sleutelwoord[index:index + 1]
 
         # Verkrijg de versleutelde letter.
         versleutelde_letter = geef_letter(letter_tekst,
@@ -80,9 +78,6 @@ def geef_antwoord(tekst: str, verlengd_sleutelwoord: str,
 
         # Voeg de letter toe aan de versleutelde tekst.
         versleutelde_tekst += versleutelde_letter
-
-        # Tel de count op met 1.
-        count += 1
 
     # Geeft de tekst terug.
     return versleutelde_tekst
