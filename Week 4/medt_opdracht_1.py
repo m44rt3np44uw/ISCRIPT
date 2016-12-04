@@ -206,8 +206,14 @@ def main() -> None:
     # Een generatie
     generatie = [[True] + [False] * 7 for _ in range(6)]
 
+    # Voor de duidelijkheid de generatiestap.
+    print("Generatie 1:")
+
     # Toon de generatie
     toon_generatie(generatie)
+
+    # Vernieuw de generatie.
+    generatie = volgende_generatie(generatie)
 
     # Lege regel
     print("")
@@ -225,9 +231,10 @@ def main() -> None:
     print("")
 
     # Toon een aantal volgende generaties.
-    for generatie_stap in range(1, 6):
+    for generatie_stap in range(2, 6):
+
         # Voor de duidelijkheid de generatiestap.
-        print("Generatie: ", generatie_stap)
+        print("Generatie " + str(generatie_stap) + ":")
 
         # Toon de generatie.
         toon_generatie(generatie)
