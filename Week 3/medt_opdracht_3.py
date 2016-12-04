@@ -3,7 +3,6 @@ Opdracht 3 - Vigenecodering
 
 https://dodona.ugent.be/nl/exercises/862295437/
 """
-import math
 import string
 
 
@@ -14,15 +13,9 @@ def codeer(originele_tekst: str, sleutelwoord: str) -> None:
     :param originele_tekst: De originele tekst als string.
     :param sleutelwoord: Het sleutelwoord als string.
     """
-    # Voor de zekerheid wordt de sleuteltekst geconverteerd naar hoofdletters
-    sleutelwoord = sleutelwoord.upper()
-
-    # Lengte van de originele tekst.
-    lengte_originele_tekst = len(originele_tekst)
-
     # Het verlengde sleutelwoord
-    verlengd_sleutelwoord = verleng_sleutelwoord(sleutelwoord,
-                                                 lengte_originele_tekst)
+    verlengd_sleutelwoord = verleng_sleutelwoord(sleutelwoord.upper(),
+                                                 len(originele_tekst))
 
     # Toon de versleutelde tekst.
     print(geef_antwoord(originele_tekst, verlengd_sleutelwoord, True))
@@ -35,15 +28,9 @@ def decodeer(versleutelde_tekst: str, sleutelwoord: str) -> None:
     :param versleutelde_tekst: De versleutelde tekst als string.
     :param sleutelwoord: De sleutelwoord als string.
     """
-    # Voor de zekerheid wordt de sleuteltekst geconverteerd naar hoofdletters
-    sleutelwoord = sleutelwoord.upper()
-
-    # Lengte van de versleutelde tekst.
-    lengte_versleutelde_tekst = len(versleutelde_tekst)
-
     # Het verlengde sleutelwoord
-    verlengd_sleutelwoord = verleng_sleutelwoord(sleutelwoord,
-                                                 lengte_versleutelde_tekst)
+    verlengd_sleutelwoord = verleng_sleutelwoord(sleutelwoord.upper(),
+                                                 len(versleutelde_tekst))
 
     # Toon de originele tekst.
     print(geef_antwoord(versleutelde_tekst, verlengd_sleutelwoord, False))
@@ -58,17 +45,12 @@ def verleng_sleutelwoord(sleutelwoord: str, lengte_boodschap: int) -> str:
     :param lengte_boodschap: De lengte van de boodschap als integer.
     :return: Het verlengde sleutelwoord als string.
     """
-    # Lengte van het sleutelwoord
-    lengte_sleutelwoord = len(sleutelwoord)
-
     # Verdubbelaar
-    verdubbelaar = math.ceil(lengte_boodschap / lengte_sleutelwoord)
-
-    # Verlengt sleutelwoord
-    verlengt_sleutelwoord = sleutelwoord * verdubbelaar
+    verdubbelaar, overige_letters = divmod(lengte_boodschap,
+                                           len(sleutelwoord))
 
     # Geef het exacte sleutelwoord terug.
-    return verlengt_sleutelwoord[0:lengte_boodschap]
+    return (sleutelwoord * verdubbelaar) + sleutelwoord[0:overige_letters]
 
 
 def geef_antwoord(tekst: str, verlengd_sleutelwoord: str,
