@@ -68,7 +68,6 @@ def geef_antwoord(tekst: str, verlengd_sleutelwoord: str,
 
     # Loop door elk letter van de originele tekst heen.
     for index, letter_tekst in enumerate(list(tekst)):
-
         # Verkrijg de letter uit het sleutelwoord.
         letter_sleutelwoord = verlengd_sleutelwoord[index:index + 1]
 
@@ -111,23 +110,36 @@ def geef_letter(letter_uit_tekst: str, letter_uit_sleutel: str,
         index_letter_uit_sleutel = string.ascii_uppercase.index(
             letter_uit_sleutel)
 
-        # Controleer of we de letter moeten versleutelen.
-        if versleutelen:
-
-            # Tel dan de twee indexen bij elkaar op.
-            totale_index = index_letter_uit_tekst + index_letter_uit_sleutel
-
-        # Zo niet.
-        else:
-
-            # Trek dan de twee indexen van elkaar af.
-            totale_index = index_letter_uit_tekst - index_letter_uit_sleutel
-
         # De versleutelde letter positie in het alfabet.
-        versleutelde_letter_index = totale_index % 26
+        versleutelde_letter_index = verkrijg_versleutelde_letter_index(
+            index_letter_uit_tekst, index_letter_uit_sleutel, versleutelen)
 
         # Geef de versleutelde letter terug.
         return string.ascii_uppercase[versleutelde_letter_index]
+
+
+def verkrijg_versleutelde_letter_index(index_letter_uit_tekst: int,
+                                       index_letter_uit_sleutel: int,
+                                       versleutelen: bool) -> int:
+    """
+    Verkrijg de index van een versleutelde letter van het alfabet.
+
+    :param index_letter_uit_tekst: De index van een letter uit de
+                                   tekst in het alfabet als integer.
+    :param index_letter_uit_sleutel: De index van een letter ui het
+                                     sleutelwoord in het alfabet als integer.
+    :param versleutelen: Of de string versleuteld moet worden of niet
+                         als boolean.
+    :return: De index van een letter uit het alfabet.
+    """
+    # Als er niet versleuteld moet worden.
+    if not versleutelen:
+
+        # Wordt de index van de letter uit de sleutel negatief.
+        index_letter_uit_sleutel = -abs(index_letter_uit_sleutel)
+
+    # Geef de versleutelde letter index terug.
+    return (index_letter_uit_tekst + index_letter_uit_sleutel) % 26
 
 
 def main() -> None:
