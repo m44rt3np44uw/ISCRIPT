@@ -45,19 +45,7 @@ def verkrijg_geslacht_jaren(geslacht: str) -> int:
     :param geslacht: Geslacht als string.
     :return: Verkrijg het aantal levensjaren als integer.
     """
-    # Geslacht
-    geslacht = geslacht.lower()
-
-    # Aantal jaren, dit is voor als je een man bent.
-    aantal_jaren = 0
-
-    # Controleer of de persoon een vrouw is.
-    if geslacht == "vrouw":
-        # Tel er 4 jaar bij op.
-        aantal_jaren += 4
-
-    # Geef het aantal levensjaren terug.
-    return aantal_jaren
+    return 4 if geslacht.lower() == 'vrouw' else 0
 
 
 def verkrijg_roker_jaren(roker: bool) -> int:
