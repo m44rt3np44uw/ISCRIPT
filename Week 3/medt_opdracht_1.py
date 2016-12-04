@@ -54,11 +54,9 @@ def naar_lijst(geheime_boodschap: str, aantal_kolommen: int) -> list:
     # In deze lijst komen alle rijen.
     lijst = []
 
-    # Index voor het controleren voor oneven rijen.
-    index = 0
-
     # Loop door elk stukje van de geheime boodschap heen.
-    for start in range(0, len(geheime_boodschap), aantal_kolommen):
+    for index, start in enumerate(
+            range(0, len(geheime_boodschap), aantal_kolommen)):
 
         # Sla het stukje boodschap op.
         rij = geheime_boodschap[start:start + aantal_kolommen]
@@ -70,9 +68,6 @@ def naar_lijst(geheime_boodschap: str, aantal_kolommen: int) -> list:
 
         # Voeg het toe aan de lijst.
         lijst.append(rij)
-
-        # Index
-        index += 1
 
     # Geef de lijst terug.
     return lijst
