@@ -94,14 +94,8 @@ def winst(prijzen: list) -> float:
     :param prijzen: Een lijst met prijzen als list.
     :return: De winst die je zou maken als float.
     """
-    # De prijs samen.
-    prijs_samen = samen(prijzen)
-
-    # De prijs gegroepeerd.
-    prijs_gegroepeerd = gegroepeerd(prijzen)
-
     # Geef de winst terug.
-    return prijs_samen - prijs_gegroepeerd
+    return samen(prijzen) - gegroepeerd(prijzen)
 
 
 def verkrijg_gesorteerde_prijzen(prijzen: list) -> list:

@@ -101,6 +101,9 @@ def main() -> None:
     # Zomertijd 2015
     print(zomertijd(2015))
 
+    # Lege regel.
+    print("")
+
     # Wintertijd 2013
     print(wintertijd(2013))
 
@@ -109,6 +112,9 @@ def main() -> None:
 
     # Wintertijd 2015
     print(wintertijd(2015))
+
+    # Lege regel.
+    print("")
 
     # Klok 1
     print(klok('27/06/2013'))
