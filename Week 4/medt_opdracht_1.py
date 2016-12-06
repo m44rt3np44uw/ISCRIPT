@@ -130,12 +130,14 @@ def spelregel_2(levend: bool, aantal_buurcellen: int) -> bool:
      minder dan twee levende buurcellen omgeven wordt, gaat deze cel
     ook dood, maar dan door eenzaamheid.
 
+    Spelregel 2 is eigenlijk in code hetzelfde als spelregel 1.
+
     :param levend: Of de opgegeven cel levend is of niet als boolean.
     :param aantal_buurcellen: Het aantal buurcellen als integer.
     :return: Of de cel blijft leven of niet aan de hand van de bovengestelde
              vraag als boolean.
     """
-    return levend and aantal_buurcellen in [2, 3]
+    return spelregel_1(levend, aantal_buurcellen)
 
 
 def spelregel_3(levend: bool, aantal_buurcellen: int) -> bool:
