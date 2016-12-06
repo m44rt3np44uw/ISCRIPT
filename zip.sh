@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Verwijder alle oude bestanden.
+rm -rf zip/
+
 # Maak de zip directory.
 mkdir zip
 
