@@ -56,11 +56,12 @@ def aantal_buren(generatie: list, eigen_x: int, eigen_y: int) -> int:
                 # Controleer of het niet buiten het veld ligt.
                 if not is_buiten_veld(generatie, x, y):
 
-                    # Controleer of die spot gevuld is.
-                    if generatie[y][x]:
+                    # Controleert of het niet zijn eigen positie is.
+                    if not is_eigen_positie((eigen_x, eigen_y), (x, y)):
 
-                        # Controleert of het niet zijn eigen positie is.
-                        if not is_eigen_positie((eigen_x, eigen_y), (x, y)):
+                        # Controleer of die spot gevuld is.
+                        if generatie[y][x]:
+
                             # Zo ja, tel 1 buur erbij op.
                             buren += 1
 
