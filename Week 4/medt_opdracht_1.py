@@ -57,7 +57,7 @@ def aantal_buren(generatie: list, eigen_x: int, eigen_y: int) -> int:
                 if not is_buiten_veld(generatie, x, y):
 
                     # Controleert of het niet zijn eigen positie is.
-                    if not is_eigen_positie((eigen_x, eigen_y), (x, y)):
+                    if not is_eigen_positie(eigen_x, eigen_y, x, y):
 
                         # Controleer of die spot gevuld is.
                         if generatie[y][x]:
@@ -190,16 +190,17 @@ def is_buiten_veld(generatie: list, x: int, y: int) -> bool:
     return x > lengte_x or y > lengte_y
 
 
-def is_eigen_positie(eigen_coordinaat: tuple,
-                     opgegeven_coordinaat: tuple) -> bool:
+def is_eigen_positie(eigen_x: int, eigen_y: int, x: int, y: int) -> bool:
     """
     Controleert of de opgegeven coordinaat niet zijn eigen coordinaat is.
 
-    :param eigen_coordinaat: Eigen coordinaat als list.
-    :param opgegeven_coordinaat: Opgegeven coordinaat als list.
+    :type eigen_x: Eigen X coordinaat als integer.
+    :param eigen_y: Eigen Y coordinaat als integer.
+    :param x: X coordinaat als integer.
+    :param y: Y coordinaat als integer.
     :return: True of False als het opgegeven coordinaat hetzelfde is.
     """
-    return eigen_coordinaat == opgegeven_coordinaat
+    return (eigen_x, eigen_y) == (x, y)
 
 
 def main() -> None:
