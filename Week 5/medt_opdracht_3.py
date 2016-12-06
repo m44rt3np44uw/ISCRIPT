@@ -207,13 +207,24 @@ def is_nationaliteit(nationaliteit: str, uitreikingen: list) -> list:
     # Loop door alle uitreikingen heen
     for uitreiking in uitreikingen:
 
+        # Aantal laureaten
+        aantal_laureaten = 0
+
         # Loop door elke laureaat heen.
         for laureaat in uitreiking['laureaat']:
 
             # Controleer de nationaliteit.
             if "({})".format(nationaliteit.lower()) in laureaat.lower():
-                # Voeg het toe aan de lijst.
-                lijst_uitreikingen.append(uitreiking)
+
+                # Tel er 1 bij op.
+                aantal_laureaten += 1
+
+        # Controleer of er meerdere laureaten zijn met het
+        # opgegeven nationaliteit.
+        if aantal_laureaten >= 1:
+
+            # Voeg het toe aan de lijst.
+            lijst_uitreikingen.append(uitreiking)
 
     # Geef de lijst terug.
     return lijst_uitreikingen
