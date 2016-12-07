@@ -42,7 +42,7 @@ def verkrijg_voetpunt(coordinaat_1: tuple, coordinaat_2: tuple,
 
     # Verkijg u
     u = ((x3 - x1) * (x2 - x1) + (y3 - y1) * (y2 - y1)) / (
-    math.pow(x2 - x1, 2) + math.pow(y2 - y1, 2))
+        math.pow(x2 - x1, 2) + math.pow(y2 - y1, 2))
 
     # Verkijg Xv en Yv
     xv = x1 + u * (x2 - x1)

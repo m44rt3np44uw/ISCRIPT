@@ -69,8 +69,8 @@ def afstand(luchthaven_code_1: str, luchthaven_code_2: str,
     return 6372.795 * atan2(sqrt(
         pow(cos(breedteligging_2) * sin(lengteligging_1 - lengteligging_2),
             2) + pow(cos(breedteligging_1) * sin(breedteligging_2) - sin(
-            breedteligging_1) * cos(breedteligging_2) * cos(
-            lengteligging_1 - lengteligging_2), 2)),
+                breedteligging_1) * cos(breedteligging_2) * cos(
+                lengteligging_1 - lengteligging_2), 2)),
         sin(breedteligging_1) * sin(
             breedteligging_2) + cos(
             breedteligging_1) * cos(
@@ -116,7 +116,7 @@ def tussenlanding(luchthaven_code_1: str, luchthaven_code_2: str,
 
             # Controleer of beide punten we te bereiken zijn.
             if afstand_a_naar_c <= reikwijdte and \
-                            afstand_c_naar_b <= reikwijdte:
+                    afstand_c_naar_b <= reikwijdte:
 
                 # Contoleer of van punt A naar B korter is.
                 if afstand_a_naar_b < kleinste_afstand:

@@ -78,7 +78,6 @@ def klok(datum: str) -> str:
     elif datum == datum_wintertijd:
         return "omschakeling van zomertijd naar wintertijd"
 
-
     # Controleer of de zomertijd is ingegaan.
     elif datum_wintertijd < datum > datum_zomertijd:
         return "wintertijd"
