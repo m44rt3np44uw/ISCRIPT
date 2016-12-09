@@ -43,13 +43,13 @@ def verkrijg_laatste_zondag(laatste_dag_in_de_maand: date) -> date:
     :param laatste_dag_in_de_maand: Laatste dag in de maand als date.
     :return: Laatste zondag van de maand als date.
     """
-    # Wintetijd datum
+    # Wintertijd datum
     laatste_zondag = laatste_dag_in_de_maand
 
     # Ga door zolang de dag niet gelijk is aan zondag.
     while laatste_zondag.weekday() is not 6:
         # Haal er 1 dag vanaf.
-        laatste_zondag -= timedelta(1)
+        laatste_zondag -= timedelta(days=1)
 
     # Geef de laatste zondag van de maand terug.
     return laatste_zondag
