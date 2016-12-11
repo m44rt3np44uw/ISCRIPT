@@ -109,19 +109,24 @@ def main() -> None:
     Opdracht 2 - Levensverwachting
     """
     # Persoon 1
-    levensverwachting("man", True, 2, 10, True)
+    levensverwachting(geslacht='man', roker=True, sport=2, alcohol=10,
+                      fastfood=True)
 
     # Persoon 2
-    levensverwachting("man", True, 5, 5, True)
+    levensverwachting(geslacht='man', roker=True, sport=5, alcohol=5,
+                      fastfood=True)
 
     # Persoon 3
-    levensverwachting("vrouw", False, 5, 0, False)
+    levensverwachting(geslacht='vrouw', roker=False, sport=5, alcohol=0,
+                      fastfood=False)
 
     # Persoon 4
-    levensverwachting("vrouw", False, 3, 14, True)
+    levensverwachting(geslacht='vrouw', roker=False, sport=3, alcohol=14,
+                      fastfood=True)
 
     # Persoon 5
-    levensverwachting("man", False, 4, 4, False)
+    levensverwachting(geslacht='man', roker=False, sport=4, alcohol=4,
+                      fastfood=False)
 
 
 if __name__ == "__main__":
