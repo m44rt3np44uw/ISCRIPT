@@ -60,7 +60,7 @@ def aantal_buren(generatie: list, eigen_x: int, eigen_y: int) -> int:
                     if not is_eigen_positie(eigen_x, eigen_y, x, y):
 
                         # Controleer of die spot gevuld is.
-                        if generatie[y][x]:
+                        if is_levend(generatie, x, y):
 
                             # Zo ja, tel 1 buur erbij op.
                             buren += 1
@@ -152,6 +152,18 @@ def spelregel_3(levend: bool, aantal_buurcellen: int) -> bool:
              vraag als boolean.
     """
     return not levend and aantal_buurcellen is 3
+
+
+def is_levend(generatie: list, x: int, y: int) -> bool:
+    """
+    Controleer of de positie in de generatie leeft.
+
+    :param generatie: De huidige generatie als list.
+    :param x: De X positie als integer.
+    :param y: De Y positie als integer.
+    :return: Een antwoord op de vraag als boolean.
+    """
+    return generatie[y][x]
 
 
 def verkrijg_toonbare_positie(bezet: bool) -> str:
