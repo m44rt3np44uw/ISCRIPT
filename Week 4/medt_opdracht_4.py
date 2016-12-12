@@ -57,12 +57,6 @@ def main() -> None:
         'options', 'flexibility', 'capability', 'mobility', 'programming',
         'concept', 'time-phase', 'projection', 'hardware', 'contingency')
 
-    # Zoemzin 1
-    print(zoemzin1((buzz1, buzz2, buzz3)))
-
-    # Zoemzin 2
-    print(zoemzin2(buzz1, buzz2, buzz3))
-
     # Shakespeare 1
     shakespeare1 = ['Thou']
 
@@ -110,6 +104,12 @@ def main() -> None:
                     'pigeon-egg', 'pignut', 'puttock', 'pumpion', 'ratsbane',
                     'scut', 'skainsmate', 'strumpet', 'varlet', 'vassal',
                     'whey-face', 'wagtail']
+
+    # Zoemzin 1
+    print(zoemzin1((buzz1, buzz2, buzz3)))
+
+    # Zoemzin 2
+    print(zoemzin2(buzz1, buzz2, buzz3))
 
     # Zoemzin 1
     print(zoemzin1((shakespeare1, shakespeare2, shakespeare3, shakespeare4)))
