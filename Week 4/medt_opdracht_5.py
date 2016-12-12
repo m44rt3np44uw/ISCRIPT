@@ -15,7 +15,7 @@ def zomertijd(jaartal: int) -> date:
     :return: De datum wanneer de zomertijd ingaat als date.
     """
     # Laatste dag in maart.
-    laatste_dag_in_maart = date(jaartal, 4, 1) - timedelta(days=1)
+    laatste_dag_in_maart = date(jaartal, 3, 31)
 
     # Geef de laatste zondag van de maand terug.
     return verkrijg_laatste_zondag(laatste_dag_in_maart)
@@ -66,8 +66,10 @@ def klok(datum: str) -> str:
     # Converteer de string datum naar een date object.
     datum = datetime.strptime(datum, "%d/%m/%Y").date()
 
-    # Wintertijd
+    # Zomertijd
     datum_zomertijd = zomertijd(datum.year)
+
+    # Wintertijd
     datum_wintertijd = wintertijd(datum.year)
 
     # Controleer of de zomertijd ingaat.
