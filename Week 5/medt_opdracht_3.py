@@ -279,11 +279,17 @@ def is_motivering(motivering: str, uitreikingen: list) -> list:
 
 
 def main() -> None:
+    # Titel zoekresultaat 1.
+    print("Zoekresultaat 1:")
+
     # Zoekresultaat 1
     prijzen('medt_opdracht_3_prijzen.csv', prijs='nobelprijs', jaar=1994)
 
     # Lege regel
     print("")
+
+    # Titel zoekresultaat 2.
+    print("Zoekresultaat 2:")
 
     # Zoekresultaat 2
     prijzen("medt_opdracht_3_prijzen.csv", prijs="nobelprijs",
@@ -292,11 +298,17 @@ def main() -> None:
     # Lege regel
     print("")
 
+    # Titel zoekresultaat 3.
+    print("Zoekresultaat 3:")
+
     # Zoekresultaat 3
     prijzen("medt_opdracht_3_prijzen.csv", nationaliteit="bel")
 
     # Lege regel
     print("")
+
+    # Titel zoekresultaat 4.
+    print("Zoekresultaat 4:")
 
     # Zoekresultaat 4
     prijzen("medt_opdracht_3_prijzen.csv", discipline="scheikunde",
@@ -304,6 +316,9 @@ def main() -> None:
 
     # Lege regel
     print("")
+
+    # Titel zoekresultaat 5.
+    print("Zoekresultaat 5:")
 
     # Zoekresultaat 5
     prijzen("medt_opdracht_3_prijzen.csv", motivering="röntgen",
