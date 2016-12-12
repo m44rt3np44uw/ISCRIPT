@@ -105,16 +105,16 @@ def main() -> None:
                     'scut', 'skainsmate', 'strumpet', 'varlet', 'vassal',
                     'whey-face', 'wagtail']
 
-    # Zoemzin 1
+    # Zoemzin 1 - Buzz
     print(zoemzin1((buzz1, buzz2, buzz3)))
 
-    # Zoemzin 2
+    # Zoemzin 2 - Buzz
     print(zoemzin2(buzz1, buzz2, buzz3))
 
-    # Zoemzin 1
+    # Zoemzin 1 - Shakespeare
     print(zoemzin1((shakespeare1, shakespeare2, shakespeare3, shakespeare4)))
 
-    # Zoemzin 2
+    # Zoemzin 2 - Shakespeare
     print(zoemzin2(shakespeare1, shakespeare2, shakespeare3, shakespeare4))
 
 
