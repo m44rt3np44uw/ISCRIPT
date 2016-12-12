@@ -145,6 +145,9 @@ def main() -> None:
     # Lees de luchthavens
     luchthavens = lees_luchthavens('medt_opdracht_5_luchthavens.txt')
 
+    # Alle luchthavens
+    print(luchthavens)
+
     # Luchthaven 1
     print(luchthavens['ADK'])
 
