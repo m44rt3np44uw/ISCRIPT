@@ -50,20 +50,17 @@ def aantal_buren(generatie: list, eigen_x: int, eigen_y: int) -> int:
         # Ga door elke kolom heen.
         for x in range(nieuwe_x, nieuwe_x + 3):
 
-            # Controleert of het niet negatief is.
-            if not is_negatief_coordinaat(x, y):
+            # Controleer of het niet buiten het veld ligt.
+            if not is_buiten_veld(generatie, x, y):
 
-                # Controleer of het niet buiten het veld ligt.
-                if not is_buiten_veld(generatie, x, y):
+                # Controleert of het niet zijn eigen positie is.
+                if not is_eigen_positie(eigen_x, eigen_y, x, y):
 
-                    # Controleert of het niet zijn eigen positie is.
-                    if not is_eigen_positie(eigen_x, eigen_y, x, y):
+                    # Controleer of die spot gevuld is.
+                    if is_levend(generatie, x, y):
 
-                        # Controleer of die spot gevuld is.
-                        if is_levend(generatie, x, y):
-
-                            # Zo ja, tel 1 buur erbij op.
-                            buren += 1
+                        # Zo ja, tel 1 buur erbij op.
+                        buren += 1
 
     # Geef het aantal buren terug.
     return buren
@@ -199,7 +196,7 @@ def is_buiten_veld(generatie: list, x: int, y: int) -> bool:
     lengte_x = len(generatie[0]) - 1
     lengte_y = len(generatie) - 1
 
-    return x > lengte_x or y > lengte_y
+    return x > lengte_x or y > lengte_y or is_negatief_coordinaat(x, y)
 
 
 def is_eigen_positie(eigen_x: int, eigen_y: int, x: int, y: int) -> bool:
