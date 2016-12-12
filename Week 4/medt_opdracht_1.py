@@ -228,9 +228,6 @@ def main() -> None:
     # Toon de generatie
     toon_generatie(generatie)
 
-    # Vernieuw de generatie.
-    generatie = volgende_generatie(generatie)
-
     # Lege regel
     print("")
 
@@ -242,6 +239,9 @@ def main() -> None:
 
     # Aantal buren op positie 2,2
     print(aantal_buren(generatie, 2, 2))
+
+    # Vernieuw de generatie.
+    generatie = volgende_generatie(generatie)
 
     # Lege regel
     print("")
