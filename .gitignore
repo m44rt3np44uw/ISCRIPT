@@ -1,3 +1,5 @@
 Module/*
 *.zip
 zip/
+*.sqlite
+*.key

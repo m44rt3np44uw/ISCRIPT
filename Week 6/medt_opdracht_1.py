@@ -1,6 +1,8 @@
 """
 Opdracht 1 - Android patroon hacking
 """
+import os
+from sys import exit
 
 
 def main() -> None:
@@ -8,10 +10,24 @@ def main() -> None:
     Opdracht 1 - Android patroon hacking
     """
     # Aantal te cracken codes.
-    # aantal_bestanden = verkrijg_aantal_bestanden()
+    aantal_bestanden = verkrijg_aantal_bestanden()
 
     # Alle bestandsnamen
-    # gesture_keys = verkrijg_gesture_bestanden(aantal_bestanden)
+    gesture_bestanden = verkrijg_gesture_bestanden(aantal_bestanden)
+
+    # Gekraakte codes
+    patronen = verkrijg_patronen(gesture_bestanden)
+
+    # Toon de patronen
+    toon_patronen(patronen)
+
+
+def verkrijg_patronen(gesture_bestanden: list) -> list:
+    """
+
+    :param gesture_bestanden:
+    :return:
+    """
 
 
 def toon_patronen(combinaties: list) -> None:
@@ -77,6 +93,17 @@ def verkrijg_gesture_bestanden(aantal_bestanden: int) -> list:
     :param aantal_bestanden:
     :return:
     """
+    # Hou alle bestanden bij.
+    bestanden = []
+
+    # Ga door het aantal op te vragen bestand heen.
+    for x in range(0, aantal_bestanden):
+
+        # Voeg het bestand toe aan de lijst.
+        bestanden.append(verkijg_gesture_key_bestand())
+
+    # Geef de bestanden terug als list.
+    return bestanden
 
 
 def verkrijg_aantal_bestanden() -> int:
@@ -85,7 +112,17 @@ def verkrijg_aantal_bestanden() -> int:
 
     :return: Het aantal op te vragen patroon cracks.
     """
-    return int(input("Aantal patroon cracks: "))
+    # Probeer een getal te vragen.
+    try:
+
+        # Geef het ingevulde getal terug.
+        return int(input("Aantal patroon cracks: "))
+
+    # Is het geen nummer.
+    except:
+
+        # Geef de foutmelding weer.
+        print("Het ingevoerde aantal is niet een nummer.")
 
 
 def verkijg_gesture_key_bestand() -> str:
@@ -94,7 +131,23 @@ def verkijg_gesture_key_bestand() -> str:
 
     :return: Het pas naar de gesture.key file als string.
     """
-    return str(input("Pad naar gesture.key: "))
+    # Vraag het bestandsnaam op.
+    bestandsnaam = str(input("Pad naar gesture.key: "))
+
+    # Controleer of het bestand bestaan.
+    if os.path.isfile(bestandsnaam):
+
+        # Geef de naam als string terug.
+        return bestandsnaam
+
+    # Zo niet.
+    else:
+
+        # Geef weer dat het bestand niet bestaat.
+        print("Het opgegeven bestand bestaan niet.")
+
+        # Stop het script.
+        exit()
 
 
 if __name__ == '__main__':
