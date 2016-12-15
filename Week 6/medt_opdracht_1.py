@@ -15,6 +15,9 @@ def main() -> None:
     # Alle bestandsnamen
     gesture_bestanden = verkrijg_gesture_bestanden(aantal_bestanden)
 
+    # Lege regel
+    print("")
+
     # Gekraakte codes
     patronen = verkrijg_patronen(gesture_bestanden)
 
@@ -28,6 +31,26 @@ def verkrijg_patronen(gesture_bestanden: list) -> list:
     :param gesture_bestanden:
     :return:
     """
+    # Placeholder voor alle patronen.
+    patronen = []
+
+    # Loop door alle opgegeven bestanden heen.
+    for bestand in gesture_bestanden:
+
+        # Voeg het patroon toe aan de lijst.
+        patronen.append(verkrijg_patroon(bestand))
+
+    # Geef de lijst met patronen terug.
+    return patronen
+
+
+def verkrijg_patroon(bestand: str) -> list:
+    """
+
+    :param bestand:
+    :return:
+    """
+    return [1, 3, 4, 5, 7]
 
 
 def toon_patronen(combinaties: list) -> None:
@@ -78,9 +101,9 @@ def toon_patroon(combinatie: list) -> None:
             else:
 
                 # Voeg een punt toe.
-                rij.append('-')
+                rij.append('.')
 
-        # Teken het patroon in de console.
+        # Teken de rij van het patroon in de console.
         print('----- ----- -----')
         print('| ' + ' | | '.join(rij) + ' |')
         print('----- ----- -----')
@@ -100,7 +123,7 @@ def verkrijg_gesture_bestanden(aantal_bestanden: int) -> list:
     for x in range(0, aantal_bestanden):
 
         # Voeg het bestand toe aan de lijst.
-        bestanden.append(verkijg_gesture_key_bestand())
+        bestanden.append(verkijg_gesture_key_bestand(x + 1))
 
     # Geef de bestanden terug als list.
     return bestanden
@@ -119,20 +142,23 @@ def verkrijg_aantal_bestanden() -> int:
         return int(input("Aantal patroon cracks: "))
 
     # Is het geen nummer.
-    except:
+    except ValueError:
 
         # Geef de foutmelding weer.
         print("Het ingevoerde aantal is niet een nummer.")
 
+        # Stop het script.
+        exit()
 
-def verkijg_gesture_key_bestand() -> str:
+
+def verkrijg_bestand(vraag: str) -> str:
     """
-    Verkrijg het pad naar de gesture.key file.
 
-    :return: Het pas naar de gesture.key file als string.
+    :param vraag:
+    :return:
     """
     # Vraag het bestandsnaam op.
-    bestandsnaam = str(input("Pad naar gesture.key: "))
+    bestandsnaam = str(input(vraag))
 
     # Controleer of het bestand bestaan.
     if os.path.isfile(bestandsnaam):
@@ -148,6 +174,24 @@ def verkijg_gesture_key_bestand() -> str:
 
         # Stop het script.
         exit()
+
+
+def verkijg_gesture_key_bestand(bestandsnummer: int) -> str:
+    """
+    Verkrijg het pad naar de gesture.key file.
+
+    :return: Het pas naar de gesture.key file als string.
+    """
+    return verkrijg_bestand(
+        "Pad naar gesture bestand {0}: ".format(bestandsnummer))
+
+
+def verkrijg_sqlite_bestand() -> str:
+    """
+
+    :return:
+    """
+    return verkrijg_bestand("Pad naar sqlite bestand: ")
 
 
 if __name__ == '__main__':
