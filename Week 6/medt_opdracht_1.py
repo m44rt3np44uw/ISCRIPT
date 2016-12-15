@@ -53,10 +53,12 @@ def verkrijg_patronen(gesture_bestanden: list, sqlite_bestand: str) -> list:
 
 def verkrijg_patroon(gesture_bestand: str, sqlite_bestand: str) -> list:
     """
+    Verkrijg een lijst met cijfers die het patroon vormen om de telefoon te
+    unlocken.
 
-    :param gesture_bestand:
-    :param sqlite_bestand:
-    :return:
+    :param gesture_bestand: Het pad naar het gesture bestand als string.
+    :param sqlite_bestand: Het pad naar de SQLite bestand als string.
+    :return: Geef een list terug met de cijfers van het patroon.
     """
     # Verkrijg de gesture hash.
     gesture_hash = verkrijg_gesture_hash(gesture_bestand)
@@ -82,10 +84,12 @@ def verkrijg_patroon(gesture_bestand: str, sqlite_bestand: str) -> list:
 def verkrijg_patroon_vanuit_database(gesture_hash: str,
                                      sqlite_bestand) -> str:
     """
+    Haal het bijbehorende patroon op uit de batabase aan de hand van de
+    opgegeven hash.
 
-    :param gesture_hash:
-    :param sqlite_bestand:
-    :return:
+    :param gesture_hash: De hash als string.
+    :param sqlite_bestand: Het SQLite bestand als string.
+    :return: Het patroon als list.
     """
     # Maak een SQLite connectie.
     connectie = sqlite3.connect(sqlite_bestand)
@@ -124,12 +128,14 @@ def verkrijg_patroon_vanuit_database(gesture_hash: str,
 
 def verkrijg_gesture_hash(gesture_bestand: str) -> str:
     """
+    Verkrijg de hash vanuit het opgegeven bestand.
 
-    :param gesture_bestand:
-    :return:
+    :param gesture_bestand: Pad naar het bestand als string.
+    :return: De hash als string.
     """
     # Open het opgegeven bestand.
     with open(gesture_bestand, mode='rb') as bestand:
+
         # Verkrijg de content uit het bestand.
         content = bestand.read()
 
@@ -153,7 +159,7 @@ def toon_patronen(combinaties: list) -> None:
     """
     Toon alle patronen.
 
-    :param combinaties: Een lijstmet combinaties als list.
+    :param combinaties: Een lijst met combinaties als list.
     """
     # Ga door alle combinaties heen.
     for nummer, combinatie in enumerate(combinaties):
@@ -209,8 +215,8 @@ def verkrijg_gesture_bestanden(aantal_bestanden: int) -> list:
     """
     Verkrijg alle bestanden die gecrackt moeten worden.
 
-    :param aantal_bestanden:
-    :return:
+    :param aantal_bestanden: Het aantal op te vragen bestanden als integer.
+    :return: Een lijst met bestanden als string.
     """
     # Hou alle bestanden bij.
     bestanden = []
@@ -249,9 +255,10 @@ def verkrijg_aantal_bestanden() -> int:
 
 def verkrijg_bestand(vraag: str) -> str:
     """
+    Vraag aan de gebruiker een bestand op en controleer of het bestaat.
 
-    :param vraag:
-    :return:
+    :param vraag: De vraag als string.
+    :return: Het pad naar het bestand als string.
     """
     # Vraag het bestandsnaam op.
     bestandsnaam = str(input(vraag))
@@ -284,8 +291,9 @@ def verkijg_gesture_key_bestand(bestandsnummer: int) -> str:
 
 def verkrijg_sqlite_bestand() -> str:
     """
+    Vraag aan de gebruiker het pad naar het SQLite bestand.
 
-    :return:
+    :return: Verkrijg het pad naar het SQLite bestand als string.
     """
     return verkrijg_bestand("Pad naar sqlite bestand: ")
 
