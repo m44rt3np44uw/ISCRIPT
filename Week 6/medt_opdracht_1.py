@@ -3,7 +3,6 @@ Opdracht 1 - Android patroon hacking
 """
 import binascii
 import os
-import re
 import sqlite3
 from sys import exit
 
@@ -45,7 +44,6 @@ def verkrijg_patronen(gesture_bestanden: list, sqlite_bestand: str) -> list:
 
     # Loop door alle opgegeven bestanden heen.
     for bestand in gesture_bestanden:
-
         # Voeg het patroon toe aan de lijst.
         patronen.append(verkrijg_patroon(bestand, sqlite_bestand))
 
@@ -57,6 +55,7 @@ def verkrijg_patroon(gesture_bestand: str, sqlite_bestand: str) -> list:
     """
 
     :param gesture_bestand:
+    :param sqlite_bestand:
     :return:
     """
     # Verkrijg de gesture hash.
@@ -65,21 +64,27 @@ def verkrijg_patroon(gesture_bestand: str, sqlite_bestand: str) -> list:
     # Verkrijg het patroon.
     patroon = verkrijg_patroon_vanuit_database(gesture_hash, sqlite_bestand)
 
+    # Sla alleen de cijfers op uit het resultaat.
     alleen_cijfers = []
 
+    # Loop door elke karakter heen in het resultaat.
     for karakter in patroon:
 
-        if karakter.isnumeric():
-
+        # Controleer of het een digit is.
+        if karakter.isdigit():
+            # Voeg het toe aan de lijst als integer.
             alleen_cijfers.append(int(karakter))
 
+    # Geef de lijst terug.
     return alleen_cijfers
 
 
-def verkrijg_patroon_vanuit_database(gesture_hash: str, sqlite_bestand) -> str:
+def verkrijg_patroon_vanuit_database(gesture_hash: str,
+                                     sqlite_bestand) -> str:
     """
 
     :param gesture_hash:
+    :param sqlite_bestand:
     :return:
     """
     # Maak een SQLite connectie.
@@ -88,8 +93,12 @@ def verkrijg_patroon_vanuit_database(gesture_hash: str, sqlite_bestand) -> str:
     # Bereid de huidige connectie voor.
     huidige = connectie.cursor()
 
+    # SQL statement
+    sql_statement = \
+        "SELECT pattern FROM RainbowTable WHERE hash=\"" + gesture_hash + "\""
+
     # Voer de SELECT statement uit op de database.
-    huidige.execute("SELECT pattern FROM RainbowTable WHERE hash=\"" + gesture_hash + "\"")
+    huidige.execute(sql_statement)
 
     # Verkrijg een rij vanuit de database.
     patroon = huidige.fetchone()
@@ -121,15 +130,23 @@ def verkrijg_gesture_hash(gesture_bestand: str) -> str:
     """
     # Open het opgegeven bestand.
     with open(gesture_bestand, mode='rb') as bestand:
-
         # Verkrijg de content uit het bestand.
         content = bestand.read()
 
-        # Haal de gesture hash op uit het bestand.
-        gesture_hash = binascii.hexlify(content).decode()
+        # Probeer het bestand te decoderen.
+        try:
 
-        # Geef de gesture hash terug.
-        return gesture_hash
+            # Haal de gesture hash op uit het bestand.
+            return binascii.hexlify(content).decode()
+
+        # Als het niet werkt.
+        except TypeError:
+
+            # Geef een foutmelding.
+            print("Het bestand kan niet gedecodeert worden.")
+
+            # Stop het programma.
+            exit()
 
 
 def toon_patronen(combinaties: list) -> None:
@@ -157,7 +174,6 @@ def toon_patroon(combinatie: list) -> None:
 
     :param combinatie: De combinatie van het patroon als list.
     """
-
 
     # Loop door de rijen heen.
     for y in range(0, 3):
@@ -215,23 +231,20 @@ def verkrijg_aantal_bestanden() -> int:
 
     :return: Het aantal op te vragen patroon cracks.
     """
-    # # Probeer een getal te vragen.
-    # try:
-    #
-    #     # Geef het ingevulde getal terug.
-    #     return int(input("Aantal patroon cracks: "))
-    #
-    # # Is het geen nummer.
-    # except ValueError:
-    #
-    #     # Geef de foutmelding weer.
-    #     print("Het ingevoerde aantal is niet een nummer.")
-    #
-    #     # Stop het script.
-    #     exit()
+    # Probeer een getal te vragen.
+    try:
 
-    # TODO
-    return 1
+        # Geef het ingevulde getal terug.
+        return int(input("Aantal patroon cracks: "))
+
+    # Is het geen nummer.
+    except ValueError:
+
+        # Geef de foutmelding weer.
+        print("Het ingevoerde aantal is niet een nummer.")
+
+        # Stop het script.
+        exit()
 
 
 def verkrijg_bestand(vraag: str) -> str:
@@ -265,11 +278,8 @@ def verkijg_gesture_key_bestand(bestandsnummer: int) -> str:
 
     :return: Het pas naar de gesture.key file als string.
     """
-    # return verkrijg_bestand(
-    #     "Pad naar gesture bestand {0}: ".format(bestandsnummer))
-
-    # TODO
-    return "/Users/maartenpaauw/Code/School/Periode 2/ISCRIPT/Week 6/gestures/medt_opdracht_1_gesture_1.key"
+    return verkrijg_bestand(
+        "Pad naar gesture bestand {0}: ".format(bestandsnummer))
 
 
 def verkrijg_sqlite_bestand() -> str:
@@ -277,10 +287,7 @@ def verkrijg_sqlite_bestand() -> str:
 
     :return:
     """
-    # return verkrijg_bestand("Pad naar sqlite bestand: ")
-
-    # TODO
-    return "/Users/maartenpaauw/Code/School/Periode 2/ISCRIPT/Week 6/medt_opdracht_1_android_lockscreen_rainbow.sqlite"
+    return verkrijg_bestand("Pad naar sqlite bestand: ")
 
 
 if __name__ == '__main__':
