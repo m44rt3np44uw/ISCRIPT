@@ -3,6 +3,7 @@ Opdracht 1 - Android patroon hacking
 """
 import binascii
 import os
+import re
 import sqlite3
 from sys import exit
 
@@ -61,11 +62,21 @@ def verkrijg_patroon(gesture_bestand: str, sqlite_bestand: str) -> list:
     # Verkrijg de gesture hash.
     gesture_hash = verkrijg_gesture_hash(gesture_bestand)
 
-    #
+    # Verkrijg het patroon.
     patroon = verkrijg_patroon_vanuit_database(gesture_hash, sqlite_bestand)
 
+    alleen_cijfers = []
 
-def verkrijg_patroon_vanuit_database(gesture_hash: str, sqlite_bestand) -> list:
+    for karakter in patroon:
+
+        if karakter.isnumeric():
+
+            alleen_cijfers.append(int(karakter))
+
+    return alleen_cijfers
+
+
+def verkrijg_patroon_vanuit_database(gesture_hash: str, sqlite_bestand) -> str:
     """
 
     :param gesture_hash:
@@ -83,10 +94,23 @@ def verkrijg_patroon_vanuit_database(gesture_hash: str, sqlite_bestand) -> list:
     # Verkrijg een rij vanuit de database.
     patroon = huidige.fetchone()
 
-    print(patroon)
-
     # Sluit de verbinding af.
     huidige.close()
+
+    # Controleer of het patroon niet leeg is.
+    if patroon is not None:
+
+        # Geef alleen het eerste patroon terug.
+        return patroon[0]
+
+    # Is er geen patroon gevonden.
+    else:
+
+        # Geef dit terug aan de gebruiker.
+        print("Er is geen patroon gevonden me de opgegeven hash.")
+
+        # Sluit het python script af.
+        exit()
 
 
 def verkrijg_gesture_hash(gesture_bestand: str) -> str:
@@ -133,6 +157,7 @@ def toon_patroon(combinatie: list) -> None:
 
     :param combinatie: De combinatie van het patroon als list.
     """
+
 
     # Loop door de rijen heen.
     for y in range(0, 3):
