@@ -81,7 +81,7 @@ def verkrijg_patroon(gesture_bestand: str, sqlite_bestand: str) -> list:
     return alleen_cijfers
 
 
-def verkrijg_patroon_vanuit_database(gesture_hash: str,
+def verkrijg_patroon_vanuit_database(gesture: str,
                                      sqlite_bestand) -> str:
     """
     Haal het bijbehorende patroon op uit de batabase aan de hand van de
@@ -98,11 +98,10 @@ def verkrijg_patroon_vanuit_database(gesture_hash: str,
     huidige = connectie.cursor()
 
     # SQL statement
-    sql_statement = \
-        "SELECT pattern FROM RainbowTable WHERE hash=\"" + gesture_hash + "\""
+    sql = "SELECT pattern FROM RainbowTable WHERE hash=\"" + gesture + "\""
 
     # Voer de SELECT statement uit op de database.
-    huidige.execute(sql_statement)
+    huidige.execute(sql)
 
     # Verkrijg een rij vanuit de database.
     patroon = huidige.fetchone()
