@@ -102,8 +102,17 @@ def verkrijg_patroon_vanuit_database(gesture: str,
     # SQL statement
     sql = "SELECT pattern FROM RainbowTable WHERE hash=\"" + gesture + "\""
 
-    # Voer de SELECT statement uit op de database.
-    huidige.execute(sql)
+    # Probeer een execute.
+    try:
+
+        # Voer de SELECT statement uit op de database.
+        huidige.execute(sql)
+
+    # Het is geen database file.
+    except sqlite3.DatabaseError:
+
+        # Sluit het programma af.
+        stop_met_melding("Het opgegeven bestand is geen database.")
 
     # Verkrijg een rij vanuit de database.
     patroon = huidige.fetchone()
