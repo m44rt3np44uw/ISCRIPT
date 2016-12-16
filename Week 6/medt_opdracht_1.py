@@ -321,5 +321,8 @@ def stop_met_melding(melding: str) -> None:
     exit()
 
 
+# Controleer of het script direct aangeroepen wordt.
 if __name__ == '__main__':
+
+    # Voer dan de methode main uit.
     main()
