@@ -22,7 +22,7 @@ zip -rq zip/s1094220-medt-week-4.zip Week\ 4/
 zip -rq zip/s1094220-medt-week-5.zip Week\ 5/
 
 # Week 6
-zip -rq zip/s1094220-medt-week-6.zip Week\ 6/
+zip -rq zip/s1094220-medt-week-6.zip Week\ 6/medt_opdracht_1.py
 
 # Week 7
 zip -rq zip/s1094220-medt-week-7.zip Week\ 7/

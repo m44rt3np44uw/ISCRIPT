@@ -7,29 +7,6 @@ import sqlite3
 from sys import exit
 
 
-def main() -> None:
-    """
-    Opdracht 1 - Android patroon hacking
-    """
-    # Aantal te cracken codes.
-    aantal_bestanden = verkrijg_aantal_bestanden()
-
-    # Alle bestandsnamen.
-    gesture_bestanden = verkrijg_gesture_bestanden(aantal_bestanden)
-
-    # SQLite bestand.
-    sqlite_bestand = verkrijg_sqlite_bestand()
-
-    # Lege regel.
-    print("")
-
-    # Gekraakte codes.
-    patronen = verkrijg_patronen(gesture_bestanden, sqlite_bestand)
-
-    # Toon de patronen.
-    toon_patronen(patronen)
-
-
 def verkrijg_patronen(gesture_bestanden: list, sqlite_bestand: str) -> list:
     """
     Verkrijg van elk opgegeven bestand in de list het bijbehorende patroon
@@ -273,6 +250,9 @@ def verkrijg_bestand(vraag: str) -> str:
     # Vraag het bestandsnaam op.
     bestandsnaam = str(input(vraag))
 
+    # Vervang de backslashes met een spatie.
+    bestandsnaam = bestandsnaam.replace("\ ", " ")
+
     # Controleer of het bestand bestaan.
     if os.path.isfile(bestandsnaam):
 
@@ -313,6 +293,56 @@ def stop_met_melding(melding: str) -> None:
 
     # Stop het programma.
     exit()
+
+
+def main() -> None:
+    """
+    Opdracht 1 - Android patroon hacking
+    """
+    # Aantal te cracken codes.
+    aantal_bestanden = verkrijg_aantal_bestanden()
+
+    # Alle bestandsnamen.
+    gesture_bestanden = verkrijg_gesture_bestanden(aantal_bestanden)
+
+    # SQLite bestand.
+    sqlite_bestand = verkrijg_sqlite_bestand()
+
+    # Lege regel.
+    print("")
+
+    # Gekraakte codes.
+    patronen = verkrijg_patronen(gesture_bestanden, sqlite_bestand)
+
+    # Toon de patronen.
+    toon_patronen(patronen)
+
+
+def test() -> None:
+    """
+    Een test voor dit script.
+    """
+    # De gesture bestanden.
+    gesture_bestanden = [
+        "./gestures/medt_opdracht_1_gesture_1.key",
+        "./gestures/medt_opdracht_1_gesture_2.key",
+        "./gestures/medt_opdracht_1_gesture_3.key",
+        "./gestures/medt_opdracht_1_gesture_4.key",
+        "./gestures/medt_opdracht_1_gesture_5.key",
+        "./gestures/medt_opdracht_1_gesture_6.key",
+        "./gestures/medt_opdracht_1_gesture_7.key",
+        "./gestures/medt_opdracht_1_gesture_8.key",
+        "./gestures/medt_opdracht_1_gesture_9.key",
+    ]
+
+    # SQL bestand
+    sqlite_bestand = "./medt_opdracht_1_android_lockscreen_rainbow.sqlite"
+
+    # Verkrijg de patronen
+    patronen = verkrijg_patronen(gesture_bestanden, sqlite_bestand)
+
+    # Toon de patronen.
+    toon_patronen(patronen)
 
 
 # Controleer of het script direct aangeroepen wordt.
