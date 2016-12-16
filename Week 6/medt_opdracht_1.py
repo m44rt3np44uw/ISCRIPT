@@ -149,6 +149,7 @@ def verkrijg_gesture_hash(gesture_bestand: str) -> str:
                 # Geef de hash terug.
                 return gesture_hash
 
+            # Als het geen hash is.
             else:
 
                 # Stop het programma.
