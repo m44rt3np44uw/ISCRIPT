@@ -44,6 +44,7 @@ def verkrijg_patronen(gesture_bestanden: list, sqlite_bestand: str) -> list:
 
     # Loop door alle opgegeven bestanden heen.
     for bestand in gesture_bestanden:
+
         # Voeg het patroon toe aan de lijst.
         patronen.append(verkrijg_patroon(bestand, sqlite_bestand))
 
@@ -74,6 +75,7 @@ def verkrijg_patroon(gesture_bestand: str, sqlite_bestand: str) -> list:
 
         # Controleer of het een digit is.
         if karakter.isdigit():
+
             # Voeg het toe aan de lijst als integer.
             alleen_cijfers.append(int(karakter))
 
@@ -87,7 +89,7 @@ def verkrijg_patroon_vanuit_database(gesture: str,
     Haal het bijbehorende patroon op uit de batabase aan de hand van de
     opgegeven hash.
 
-    :param gesture_hash: De hash als string.
+    :param gesture: De hash als string.
     :param sqlite_bestand: Het SQLite bestand als string.
     :return: Het patroon als list.
     """
@@ -118,11 +120,8 @@ def verkrijg_patroon_vanuit_database(gesture: str,
     # Is er geen patroon gevonden.
     else:
 
-        # Geef dit terug aan de gebruiker.
-        print("Er is geen patroon gevonden me de opgegeven hash.")
-
-        # Sluit het python script af.
-        exit()
+        # Stop het programma.
+        stop_met_melding("Er is geen patroon gevonden me de opgegeven hash.")
 
 
 def verkrijg_gesture_hash(gesture_bestand: str) -> str:
@@ -142,16 +141,24 @@ def verkrijg_gesture_hash(gesture_bestand: str) -> str:
         try:
 
             # Haal de gesture hash op uit het bestand.
-            return binascii.hexlify(content).decode()
+            gesture_hash = binascii.hexlify(content).decode()
+
+            # Controleer de lengte van de hash
+            if len(gesture_hash) is 40:
+
+                # Geef de hash terug.
+                return gesture_hash
+
+            else:
+
+                # Stop het programma.
+                stop_met_melding("Het opgegeven bestand bevat geen hash.")
 
         # Als het niet werkt.
         except TypeError:
 
-            # Geef een foutmelding.
-            print("Het bestand kan niet gedecodeert worden.")
-
             # Stop het programma.
-            exit()
+            stop_met_melding("Het bestand kan niet gedecodeerd worden.")
 
 
 def toon_patronen(combinaties: list) -> None:
@@ -245,11 +252,8 @@ def verkrijg_aantal_bestanden() -> int:
     # Is het geen nummer.
     except ValueError:
 
-        # Geef de foutmelding weer.
-        print("Het ingevoerde aantal is niet een nummer.")
-
-        # Stop het script.
-        exit()
+        # Stop het programma.
+        stop_met_melding("Het ingevoerde aantal is niet een nummer.")
 
 
 def verkrijg_bestand(vraag: str) -> str:
@@ -271,11 +275,8 @@ def verkrijg_bestand(vraag: str) -> str:
     # Zo niet.
     else:
 
-        # Geef weer dat het bestand niet bestaat.
-        print("Het opgegeven bestand bestaan niet.")
-
-        # Stop het script.
-        exit()
+        # Stop het programma.
+        stop_met_melding("Het opgegeven bestand bestaan niet.")
 
 
 def verkijg_gesture_key_bestand(bestandsnummer: int) -> str:
@@ -295,6 +296,19 @@ def verkrijg_sqlite_bestand() -> str:
     :return: Verkrijg het pad naar het SQLite bestand als string.
     """
     return verkrijg_bestand("Pad naar sqlite bestand: ")
+
+
+def stop_met_melding(melding: str) -> None:
+    """
+    Print de opgegeven melding in de console en stop daarna het script.
+
+    :param melding: De melding als string.
+    """
+    # Toon de melding in de console.
+    print(melding)
+
+    # Stop het programma.
+    exit()
 
 
 if __name__ == '__main__':
