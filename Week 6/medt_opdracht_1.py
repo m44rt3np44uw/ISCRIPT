@@ -126,11 +126,8 @@ def verkrijg_patroon_vanuit_database(gesture: str,
         # Geef alleen het eerste patroon terug.
         return patroon[0]
 
-    # Is er geen patroon gevonden.
-    else:
-
-        # Stop het programma.
-        stop_met_melding("Er is geen patroon gevonden me de opgegeven hash.")
+    # Stop het programma.
+    stop_met_melding("Er is geen patroon gevonden me de opgegeven hash.")
 
 
 def verkrijg_gesture_hash(gesture_bestand: str) -> str:
@@ -282,11 +279,8 @@ def verkrijg_bestand(vraag: str) -> str:
         # Geef de naam als string terug.
         return bestandsnaam
 
-    # Zo niet.
-    else:
-
-        # Stop het programma.
-        stop_met_melding("Het opgegeven bestand bestaan niet.")
+    # Stop het programma.
+    stop_met_melding("Het opgegeven bestand bestaat niet.")
 
 
 def verkijg_gesture_key_bestand(bestandsnummer: int) -> str:
