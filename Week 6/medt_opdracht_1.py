@@ -295,29 +295,6 @@ def stop_met_melding(melding: str) -> None:
     exit()
 
 
-def main() -> None:
-    """
-    Opdracht 1 - Android patroon hacking
-    """
-    # Aantal te cracken codes.
-    aantal_bestanden = verkrijg_aantal_bestanden()
-
-    # Alle bestandsnamen.
-    gesture_bestanden = verkrijg_gesture_bestanden(aantal_bestanden)
-
-    # SQLite bestand.
-    sqlite_bestand = verkrijg_sqlite_bestand()
-
-    # Lege regel.
-    print("")
-
-    # Gekraakte codes.
-    patronen = verkrijg_patronen(gesture_bestanden, sqlite_bestand)
-
-    # Toon de patronen.
-    toon_patronen(patronen)
-
-
 def test() -> None:
     """
     Een test voor dit script.
@@ -339,6 +316,29 @@ def test() -> None:
     sqlite_bestand = "./medt_opdracht_1_android_lockscreen_rainbow.sqlite"
 
     # Verkrijg de patronen
+    patronen = verkrijg_patronen(gesture_bestanden, sqlite_bestand)
+
+    # Toon de patronen.
+    toon_patronen(patronen)
+
+
+def main() -> None:
+    """
+    Opdracht 1 - Android patroon hacking
+    """
+    # Aantal te cracken codes.
+    aantal_bestanden = verkrijg_aantal_bestanden()
+
+    # Alle bestandsnamen.
+    gesture_bestanden = verkrijg_gesture_bestanden(aantal_bestanden)
+
+    # SQLite bestand.
+    sqlite_bestand = verkrijg_sqlite_bestand()
+
+    # Lege regel.
+    print("")
+
+    # Gekraakte codes.
     patronen = verkrijg_patronen(gesture_bestanden, sqlite_bestand)
 
     # Toon de patronen.
