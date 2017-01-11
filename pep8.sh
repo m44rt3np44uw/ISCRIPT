@@ -35,6 +35,3 @@ pep8 Week\ 5/medt_opdracht_5.py
 
 # Week 6
 pep8 Week\ 6/medt_opdracht_1.py
-
-# Week 7
-pep8 Week\ 7/medt_opdracht_1.py
