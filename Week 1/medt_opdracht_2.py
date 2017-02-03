@@ -3,7 +3,7 @@ Opdracht 2 - Radialen naar graden
 
 https://dodona.ugent.be/nl/exercises/975017137/
 """
-import math
+from math import pi
 
 
 def tijd_berekening(tijd: float) -> (float, float):
@@ -24,7 +24,7 @@ def radiaal_naar_getal(aantal_radialen: float) -> float:
     :param aantal_radialen: radiaal als float.
     :return:                radiaal geconverteerd naar een float.
     """
-    return (180 / math.pi) * aantal_radialen
+    return (180 / pi) * aantal_radialen
 
 
 def main() -> None:
