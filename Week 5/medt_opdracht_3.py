@@ -99,7 +99,7 @@ def verkrijg_csv_inhoud(prijzen_csv: str) -> list:
     headers = ['prijs', 'discipline', 'jaar', 'laureaat', 'motivering']
 
     # Open het bestand.
-    with open(prijzen_csv, "rt", encoding="utf=-8") as bestand:
+    with open(prijzen_csv, "rt", encoding="utf-8") as bestand:
 
         # Lees het bestand uit.
         reader = csv.reader(bestand, delimiter=';')

@@ -31,7 +31,7 @@ def zoemzin2(*args) -> str:
     Pakt een willekeurig woord uit elke woordenlijst, en voegt deze woorden
     samen tot één enkele string (in de volgorde van de gegeven woordenlijsten).
 
-    :param buzzez: Een lijst met buzz lijsten als tuple.
+    :param args: Een lijst met buzz lijsten als tuple.
     :return: een zoemzin als string.
     """
     return zoemzin1(args)
